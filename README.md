@@ -1,4 +1,4 @@
-# whatsapp-css
+# Minimal Transparent Whatsapp by nufrankz
 The only fully real transparent theme for Whatsapp.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/whatsapp.user.styl)
