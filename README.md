@@ -112,16 +112,21 @@ Both extensions works, and have differences, the main one, referring to [your pr
 
 ### Mozilla Firefox
 [Latest release](https://www.mozilla.org/firefox)
+
 [Stylus](https://addons.mozilla.org/firefox/addon/styl-us/)
+
 [Stylish](https://addons.mozilla.org/firefox/addon/stylish/)
 
 ### Google Chrome
 [Latest release](https://www.google.com/chrome/)
+
 [Stylus](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
+
 [Stylish](https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe)
 
 ### Opera
 [Latest release](https://www.opera.com/download)
+
 [Stylus](https://addons.opera.com/extensions/details/stylus/)
 
 ### Edge
@@ -139,6 +144,6 @@ You can always donate to me on PayPal on the button below, I will be more than a
 <img alt="" border="0" src="https://www.paypal.com/en_CL/i/scr/pixel.gif" width="1" height="1" />
 </form>
 
-## Licence
+## License
 
 This work is licensed under the [General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html), and it will be _very welcome that you include mentions in your source code_ if you extract something from here, _mate_ ;)
