@@ -1,4 +1,4 @@
-# Minimal Transparent Whatsapp by nufrankz
+# Minimal Transparent Whatsapp
 The only fully real transparent theme for Whatsapp.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/whatsapp.user.styl)
@@ -8,6 +8,7 @@ The only fully real transparent theme for Whatsapp.
 Dark theme for Whatsapp, using UserCSS that overwrites the known look for a modern, transparent and minimalist one.
 
 You can install it with Stylus clicking on the button above, then modify the parameters clicking on the *gear icon* next to the Title.
+
 ![Clicking the gear will take you to the options panel](assets/images/gear.png)
 
 You can install Stylus on [Chrome](#google-chrome), [Firefox](#mozilla-firefox), [Opera](#opera) or [Edge](#edge) (with an Google Chrome compatibility extension).
