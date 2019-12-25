@@ -1,6 +1,8 @@
 # whatsapp-css
 ## The only fully real transparent theme for Whatsapp.
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://raw.githubusercontent.com/nufrankz/whatsapp/master/whatsapp.user.styl)
+
 ## Features
 
 ### Transparency.
@@ -102,3 +104,17 @@ Both extensions works, and have differences, the main one, referring to [your pr
 ### Edge
 It seems you can install Chrome extensions through the [Edge Extension Kit](https://www.microsoft.com/p/microsoft-edge-extension-toolkit/9nblggh4txvb?rtc=1&activetab=pivot:overviewtab#), then download the Chrome extension and load into it. Reports says it works well.
 
+## Bux fixing.
+You can follow standard bug submitting on the [Issues](https://github.com/nufrankz/whatsapp-css/issues) tab, and/or other ways of contributing.
+You can always donate to me on PayPal on the button below, I will be more than appretiated :)
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_donations" />
+<input type="hidden" name="business" value="H55P74TNL4V9E" />
+<input type="hidden" name="currency_code" value="USD" />
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_CL/i/scr/pixel.gif" width="1" height="1" />
+</form>
+
+## Licence
+
+This work is licensed under the [General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html), and it will be _very welcome that you include mentions in your source code_ if you extract something from here, mate ;)
