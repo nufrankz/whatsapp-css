@@ -1,13 +1,13 @@
+![Minimal Transparent Whatsapp](/assets/images/screen20191225.png)
+
 # Minimal Transparent Whatsapp
-The only fully real transparent theme for Whatsapp.
+_The only fully real transparent theme for Whatsapp._
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Install directly with Stylus](https://img.shields.io/badge/Install%20directly%20with-Stylus-00adad.svg)](https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/whatsapp.user.styl)
 
-![Minimal Transparent Whatsapp](/assets/images/screen20191225.png)
+*Dark theme* for Whatsapp, using UserCSS that overwrites the known look for a modern, transparent and minimalist one.
 
-Dark theme for Whatsapp, using UserCSS that overwrites the known look for a modern, transparent and minimalist one.
-
-You can install it with Stylus clicking on the button above, then modify the parameters clicking on the *gear icon* next to the Title.
+You can [install it](#installation) with Stylus clicking on the button above, then modify the parameters clicking on the *gear icon* next to the Title.
 
 ![Clicking the gear will take you to the options panel](assets/images/gear.png)
 
@@ -146,4 +146,4 @@ You can always donate to me on PayPal on the button below, I will be more than a
 
 ## License
 
-This work is licensed under the [General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html), and it will be _very welcome that you include mentions in your source code_ if you extract something from here, _mate_ ;)
+This work is licensed under the [General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html), and it will be _very welcome that you include mentions in your source code_ if you extract something from here, mate ;)
