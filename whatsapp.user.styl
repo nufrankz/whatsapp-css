@@ -11,8 +11,8 @@
 @preprocessor stylus
 
 @var select bgImg  'Background Image' {
-    'Color *    ': 'bg-color',
-    'Night Sky  ': 'bg-night',
+    'Color      ': 'bg-color',
+    'Night Sky *': 'bg-night',
     'Black      ': 'bg-black',
     'Custom     ': 'bg-custom'
     }
@@ -149,13 +149,9 @@
 
         if(bgImg==bg-night) {
             background-image: url(https://i.imgur.com/TUASxwu.jpg) !important;
-        }
-
-        else if(bgImg==bg-color) {
+        } else if(bgImg==bg-color) {
             background-image: url(https://i.imgur.com/bn63HyZ.png) !important;
-        }
-
-        else if(bgImg==bg-black) {
+        } else if(bgImg==bg-black) {
             background-image: url(https://i.imgur.com/LzO907u.png) !important;
         }
 
@@ -263,21 +259,13 @@
 
         else if(font==font-modern) {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-        }
-
-        else if(font==font-times) {
+        } else if(font==font-times) {
             font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif !important;
-        }
-
-        else if(font==font-console) {
+        } else if(font==font-console) {
             font-family: 'Lucida Console', Monaco, monospace !important;
-        }
-
-        else if(font==font-consoleold) {
+        } else if(font==font-consoleold) {
             font-family: 'Courier New', Courier, monospace !important;
-        }
-
-        else if(font==font-custom) {
+        } else if(font==font-custom) {
             font-family: customFont !important;
         }
 
@@ -406,9 +394,7 @@
     body {
         if(bgImg==bg-color) {
             background-color: bgColor !important;
-        }
-
-        else if(bgBlur>0) {
+        } else if(bgBlur>0) {
             position: absolute;
         }
     }
@@ -764,9 +750,7 @@
                 flex: 5% !important;
             }
         }
-    }
-
-    else if(private==private-off) {}
+    } else if(private==private-off) {}
 
     if(doodles==doodles-black) {
         body:after {
@@ -779,9 +763,7 @@
             background-image: url(https://i.imgur.com/xZai6xR.png) !important;
             background-size: 37%;
         }
-    }
-
-    else if(doodles==doodles-white) {
+    } else if(doodles==doodles-white) {
         body:after {
             content: '';
             position: absolute;
@@ -792,9 +774,7 @@
             background-image: url(https://i.imgur.com/rBLuyxZ.png) !important;
             background-size: 37%;
         }
-    }
-
-    else if(doodles==doodles-off) {}
+    }  else if(doodles==doodles-off) {}
 
     if(fullscreen==on) {
         @media screen and (min-width: 1441px) {
@@ -808,9 +788,7 @@
                 margin: auto !important;
             }
         }
-    }
-
-    else if(fullscreen==off) {}
+    } else if(fullscreen==off) {}
 
     if(newui==on) {
         #main>header>div._1SwuT>div {
@@ -840,7 +818,5 @@
             background-color: transparent !important;
             background: transparent !important;
         }
-    }
-
-    else if(newui==off) {}
+    } else if(newui==off) {}
 }
