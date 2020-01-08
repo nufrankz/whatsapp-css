@@ -159,7 +159,7 @@
             background-image: url(https://i.imgur.com/LzO907u.png) !important;
         }
 
-        ) background-size: cover !important;
+        background-size: cover !important;
         background-position: center !important;
         filter: var(--bg-blur) !important;
     }
@@ -260,17 +260,27 @@
     var,
     video {
         if(font==font-default) {}
-		else if(font==font-modern) {
-			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-		} else if(font==font-times) {
-			font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif !important;
-		} else if(font==font-console) {
-			font-family: 'Lucida Console', Monaco, monospace !important;
-		} else if(font==font-consoleold) {
-			font-family: 'Courier New', Courier, monospace !important;
-		} else if(font==font-custom) {
-			font-family: customFont !important;
-		}
+
+        else if(font==font-modern) {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+        }
+
+        else if(font==font-times) {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif !important;
+        }
+
+        else if(font==font-console) {
+            font-family: 'Lucida Console', Monaco, monospace !important;
+        }
+
+        else if(font==font-consoleold) {
+            font-family: 'Courier New', Courier, monospace !important;
+        }
+
+        else if(font==font-custom) {
+            font-family: customFont !important;
+        }
+
         color: var(--text);
     }
 
@@ -754,7 +764,9 @@
                 flex: 5% !important;
             }
         }
-    } else if(private==private-off) {}
+    }
+
+    else if(private==private-off) {}
 
     if(doodles==doodles-black) {
         body:after {
@@ -829,7 +841,9 @@ if(newui==on) {
         background-color: transparent !important;
         background: transparent !important;
     }
-} else if(newui==off) {}
+}
+
+else if(newui==off) {}
 }
 
 
