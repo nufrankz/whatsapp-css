@@ -1,4 +1,4 @@
-![Minimal Transparent Whatsapp](/assets/images/screen20191225.png)
+![Minimal Transparent Whatsapp](/assets/images/screen20200108.png)
 
 # Minimal Transparent Whatsapp
 _The only fully real transparent theme for Whatsapp._
