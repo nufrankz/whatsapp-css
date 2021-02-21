@@ -1,822 +1,844 @@
 /* ==UserStyle==
-@name         Minimal Transparent Whatsapp
-@description  The only fully real transparent, and minimal theme for Whatsapp.
-@namespace    github.com/nufrankz/whatsapp-css
-@homepageURL  https://github.com/nufrankz/whatsapp-css
-@supportURL   https://github.com/nufrankz/whatsapp-css
-@updateURL    https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/whatsapp.user.styl
-@version      3.5.2
-@author       nufrankz <hola@nufrankz.org> (https://www.nufrankz.org/?c=github)
-@license      GPL
+@name         Minimal Transparent Whatsapp ☺
+@description  A super minimal dark theme for Whatsapp. 20 settings including Background Image, Custom Colors and Fonts, Privacy and more.
+@namespace    nufrankz.org
+@version      4.1.0
+@author       nufrankz <hola@nufrankz.org> (https://github.com/nufrankz)
+@homepageURL  http://nufrankz.org/
+@supportURL   https://github.com/nufrankz/whatsapp-css/issues
+@license      MIT
 @preprocessor stylus
 
-@var select bgImg  'Background Image' {
-    'Color      ': 'bg-color',
-    'Night Sky *': 'bg-night',
-    'Black      ': 'bg-black',
-    'Custom     ': 'bg-custom'
-    }
-@var text bgCustom 'Background Image URL' '"https://i.imgur.com/bn63HyZ.png"'
-@var color bgColor 'Background Color' #21222C
-@var color accent 'Accent' #6B9EB1
-@var color background 'Transparency' rgba(5,26,34,0.6)
-@var color text 'Text' #ffffff
-@var color link 'Link' #2BCEFF
-@var select font 'Font' {
-    'Default *      ': 'font-default',
-    'Helvetica      ': 'font-modern',
-    'Times New Roman': 'font-times',
-    'Console        ': 'font-console',
-    'Old Console    ': 'font-consoleold',
-    'Custom         ': 'font-custom'
-    }
-@var text customFont 'Custom Installed Font' 'AmericanTypewriter-Condensed'
-@var range bgBlur 'Background Image Blur (in pixels)' [0, 0, 50, 1, 'px']
-@var color messageOut 'Message Out Bubble' 'rgba(255,255,255,0.1)'
-@var range emoji 'Emoji Opacity' [0.65, 0, 1, 0.01]
-@var select fullscreen 'Fullscreen' {
-    'Off * ': 'off',
-    'On    ': 'on'
+@var color light-bg "Light Background" rgba(255, 255, 255, 0.2)
+@var color transparency-color "Transparency" rgba(0, 0, 0, 0.45)
+@var color text "Text" #fff
+@var color accent "Accent" #00ffd1
+@var range faded-elements "Faded Elements" [0.35, 0, 0.9, 0.01]
+@var color body-bg "Body Background" #111
+@var range bg-blur "Background Blur" [0,0,100,1,'px']
+@var range doodles-opacity "Doodles Opacity" [0,0,1,0.05]
+@var number app-width "App Width" [100,0,100,1,"vw"]
+@var number app-height "App Height" [100,0,100,1,"vh"]
+@var select bg-image "Background Image" {
+  "Color": "bg-image-color",
+  "Custom URL *": "bg-image-custom",
 }
-@var select private 'Private Mode' {
-    'Off *': 'private-off',
-    'On   ': 'private-on'
+@var text bg-image-url "Background Image URL" '"https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/assets/images/bg-night-sky.jpg"'
+@var select bg-size "Background Size" {
+  "Full Width *": "cover",
+  "Full Height": "contain",
+  "No Scale": "auto",
+  "Stretch": "100% 100%"
 }
-@var select doodles 'Doodles' {
-    'Off * ': 'doodles-off',
-    'Black ': 'doodles-black',
-    'White ': 'doodles-white'
+@var select background-position "Background Position" {
+  "Left Top": "left top",
+  "Left Center": "left center",
+  "Left Bottom": "left bottom",
+  "Right Top": "right top",
+  "Right Center": "right center",
+  "Right Bottom": "right bottom",
+  "Center Top": "center top",
+  "Center Center *": "center center",
+  "Center Bottom": "center bottom"
+}
+@var select intro-image "Intro Image" {
+  "Default": "intro-default",
+  "None": "intro-none",
+  "Custom URL *": "intro-custom"
+}
+@var text intro-custom-url "Intro Image URL" '"https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/assets/images/intro-connection.png"'
+@var select font-family "Font Family" {
+  "Default *": "font-default",
+  "Helvetica": "font-helvetica",
+  "Times New Roman": "font-times",
+  "Console": "font-console",
+  "Old Console": "font-old-console",
+  "Custom Font": "font-custom"
+}
+@var text font-custom-input "Custom Font Family" "'Comic Sans'"
+@var checkbox private-mode "Private Mode" 0
+@var select doodles-color "Doodles Color" {
+  "White": "doodles-white",
+  "Dark": "doodles-dark",
+  "Off": "doodles-off"
+}
+@var checkbox startup "Startup Mod" 1
+@var checkbox backdrop-filter "Blurry Transparency" 0
 }
 ==/UserStyle== */
 
 @-moz-document domain("web.whatsapp.com") {
-    * {
-        box-sizing: border-box;
-    }
 
-    :root {
-        --accent: accent;
-        --background: background;
-        --text: text;
-        --link: link;
-        --svgColor: var(--accent);
-        --messageOut: messageOut;
-        --emoji: emoji;
-        --bg-blur: blur(bgBlur);
-        --blur-size: bgBlur*2;
-        --blur-size-neg: bgBlur*-2;
-    }
+  :root,
+  .dark {
+    /* Custom */
+    --light-bg: light-bg !important;
+    --transparency-color: transparency-color !important;
+    --text: text !important;
+    --accent: accent !important;
+    --faded-elements: faded-elements !important;
+    --background-size: bg-size !important;
+    --background-position: background-position !important;
+    --background-blur: bg-blur !important;
+    --doodles-opacity: doodles-opacity !important;
+    --app-width: app-width !important;
+    --app-height: app-height !important;
+    --body-bg: body-bg !important;
+    /* Standard */
+    --progress-primary: var(--accent) !important;
+    --button-secondary: var(--accent) !important;
+    --message-in: var(--transparency-color) !important;
+    --panel-header-icon: var(--text) !important;
+    --primary-strong: var(--text) !important;
+    --secondary-stronger: var(--text) !important;
+    --secondary-lighter: var(--text) !important;
+    --icon-lighter: var(--text) !important;
+    --icon-strong: var(--text) !important;
+    --labels-icon: var(--text) !important;
+    --primary: var(--text) !important;
+    --primary-stronger: var(--text) !important;
+    --message-primary: var(--text) !important;
+    --system-message-text: var(--text) !important;
+    --secondary: var(--text) !important;
+    --chatlist-icon: var(--text) !important;
+    --icon-ack: var(--accent) !important;
+    --bubble-meta: var(--text) !important;
+    --bubble-meta-icon: var(--text) !important;
+    --inverse: var(--body-bg) !important;
+    --compose-primary: var(--text) !important;
+    --input-placeholder: var(--text) !important;
+    --icon: var(--text) !important;
+    --panel-primary: var(--text) !important;
+    --notification-biz-text: var(--text) !important;
+    --audio-progress-played-incoming: var(--text) !important;
+    --audio-progress-played-outgoing: var(--text) !important;
+    --primary-title: var(--text) !important;
+    --incoming-primary: var(--text) !important;
+    --intro-secondary: var(--text) !important;
+    --status-secondary-stronger: var(--text) !important;
+    --status-primary: var(--text) !important;
+    --status-secondary: var(--text) !important;
+    --butterbar-primary: var(--text) !important;
+    --butterbar-secondary: var(--text) !important;
+    --button-alternative: var(--text) !important;
+    --input-border-active: var(--text) !important;
+    --notification-e2e-text: var(--text) !important;
+    --notificacion-e2e-icon: var(--text) !important;
+    --chat-marker-admin-border: var(--text) !important;
+    --chat-marker-admin: var(--text) !important;
+    --icon-fixed: var(--text) !important;
+    --avatar-placeholder-primary: var(--text) !important;
+    --quick-action-button: var(--text) !important;
+    --attach-media-drop-border: var(--text) !important;
+    --gray-700: var(--text) !important;
+    --notification-info-icon: var(--text) !important;
+    --butterbar-connection-primary: var(--text) !important;
+    --butterbar-connection-secondary: var(--text) !important;
+    --button-primary: var(--body-bg) !important;
+    --border-panel: transparent !important;
+    --border-stronger: transparent !important;
+    --conversation-panel-border: transparent !important;
+    --incoming-background: var(--message-in) !important;
+    --incoming-background-deeper: transparent !important;
+    --panel-header-background: transparent !important;
+    --conversation-panel-background: transparent !important;
+    --background-default: transparent !important;
+    --panel-background: transparent !important;
+    --compose-panel-background: transparent !important;
+    --panel-background-colored-deeper: transparent !important;
+    --outgoing-background-deeper: transparent !important;
+    --panel-background-deep: transparent !important;
+    --button-alternative-background: transparent !important;
+    --panel-background-colored: transparent !important;
+    --border-stronger: transparent !important;
+    --drawer-section-background: transparent !important;
+    --unread-marker-background: transparent !important;
+    --border-panel: transparent !important;
+    --progress-background: transparent !important;
+    --progress-background-rgb: 0, 0, 0 !important;
+    --media-viewer-background: var(--body-bg) !important;
+    --modal-background: var(--body-bg) !important;
+    --panel-input-background: var(--body-bg) !important;
+    --status-background: var(--body-bg) !important;
+    --compose-input-background: var(--body-bg) !important;
+    --modal-backdrop-solid: var(--body-bg) !important;
+    --panel-input-background: var(--body-bg) !important;
+    --live-location-footer-background: var(--body-bg) !important;
+    --dropdown-background: var(--body-bg) !important;
+    --outgoing-background: var(--light-bg) !important;
+    --avatar-placeholder-background: var(--light-bg) !important;
+    --button-secondary-background-hover: var(--light-bg) !important;
+    --status-background-hover: var(--light-bg) !important;
+    --background-default-hover: var(--light-bg) !important;
+    --drawer-gallery-background-hover: var(--light-bg) !important;
+    --button-background-disabled: var(--light-bg) !important;
+    --unread-background: var(--transparency-color) !important;
+    --notification-e2e-background: var(--transparency-color) !important;
+    --drawer-gallery-background-active: var(--light-bg) !important;
+    --panel-background-lighter: var(--body-bg) !important;
+    --compose-panel-background-hover: var(--transparency-color) !important;
+    --audio-progress-incoming: var(--accent) !important;
+    --audio-progress-outgoing: var(--accent) !important;
+    --chevron-button-background: var(--transparency-color) !important;
+    --rich-text-panel-background: transparent !important;
+    --message-selection-highlight: var(--transparency-color) !important;
+    --tooltip-background: var(--transparency-color) !important;
+    --system-message-background: var(--transparency-color) !important;
+    --modal-backdrop: var(--transparency-color) !important;
+    --quick-action-button-background: var(--transparency-color) !important;
+    --panel-background-deeper: transparent !important;
+    --avatar-background: var(--transparency-color) !important;
+    --attach-media-drop-overlay: var(--transparency-color) !important;
+    --photopicker-overlay-background: var(--transparency-color) !important;
+    --picker-background: var(--transparency-color) !important;
+    --rich-text-panel-background: var(--transparency-color) !important;
+    --notification-biz-background: var(--transparency-color) !important;
+    --ptt-green: var(--accent) !important;
+    --ptt-blue: var(--accent) !important;
+    --danger: var(--accent) !important;
+    --button-secondary-hover: var(--accent) !important;
+    --button-primary-background: var(--accent) !important;
+    --button-primary-background-hover: var(--accent) !important;
+    --teal: var(--accent) !important;
+    --teal-pale: var(--accent) !important;
+    --active-tab-marker: var(--accent) !important;
+    --link: var(--accent) !important;
+    --checkbox-background: var(--accent) !important;
+    --intro-border: var(--accent) !important;
+    --button-round-background: var(--accent) !important;
+    --highlight: var(--accent) !important;
+    --thumb-border-active: var(--accent) !important;
+    --typing: var(--accent) !important;
+    --live-location-glow: var(--accent) !important;
+    --menu-tabs-list-active: var(--accent) !important;
+    --unread-marker-text: var(--accent) !important;
+    --ephemeral-nux-bubble: var(--accent) !important;
+    --ephemeral-nux-timer: var(--accent) !important;
+    --wallpaper-thumb-border-hover: var(--accent) !important;
+    --toast-background: var(--accent) !important;
+    --thumb-border-viewer-active: var(--accent) !important;
+    --button-plain-background: var(--accent) !important;
+  }
 
-    html[dir] .landing-wrapper:before,
+  /* Transparent Elements */
     body,
-    #initial_startup,
-    #startup,
-    html[dir] .eiCXe,
-    input,
-    html[dir] .ZP8RM:after,
-    html[dir] .ZP8RM._19OGD,
-    html[dir] ._3fUe9,
-    html[dir] ._1RYPC,
-    html[dir] ._3Jvyf,
-    html[dir] ._2HS9r,
-    html[dir] ._2UaNq,
-    html[dir] .NuujD,
-    html[dir] ._13mgZ,
-    html[dir=ltr] .message-out .tail-container,
-    html[dir=ltr] .message-in .tail-container,
-    html[dir=ltr] .message-in .tail-override-left .tail-container,
-    html[dir=ltr] .message-in .tail-override-right .tail-container,
-    html[dir=ltr] .message-out .tail-override-right .tail-container,
-    html[dir=ltr] ._15CAo._3EQsG,
-    html[dir=ltr] ._15CAo._2Nkc4,
-    html[dir] ._1AUdd._1SsXF,
-    html[dir] .r7sRK,
-    html[dir] ._3jHKU,
-    html[dir] ._2LSbZ,
-    html[dir] .s4BtI,
-    html[dir] ._11p3Q,
-    html[dir] ._8-yzK,
-    html[dir] .IMn_C,
-    html[dir] ._2avTY,
-    html[dir] .QChXd,
-    html[dir] ._2Qm0c,
-    html[dir] ._2hMsh,
-    html[dir] ._20KNO,
-    html[dir] ._2x9yi,
-    html[dir] ._3LFRS,
-    html[dir] .RxbUw,
-    html[dir] .iFKgT,
-    html[dir] ._1w-mX,
-    html[dir] ._70TS5,
-    html[dir] ._26JG5:hover,
-    html[dir] ._26JG5,
-    html[dir] ._3qblR._1SsXF,
-    html[dir] .kiodY,
-    html[dir] .a5vst,
-    html[dir] ._1Kstu,
-    html[dir] .cGLoy,
-    html[dir] ._27U_m,
-    html[dir] ._3EeLD,
-    html[dir] ._3Xx0y,
-    html[dir] ._1Yz8K.XSeqj,
-    html[dir] .OWYLS,
-    [data-asset-chat-background],
-    html[dir] .NeQRT,
-    html[dir] ._2rGVQ,
-    html[dir] ._2AJf5,
-    html[dir] ._19xqi,
-    html[dir] ._3fktq,
-    html[dir] ._2nZ2E.HNuTV,
-    html[dir] .Lhd3q.HNuTV,
-    html[dir] ._310T_,
-    html[dir] ._22aOT,
-    .gmnoprint div:nth-child(2),
-    html[dir] ._3j8Pd._1eXOh,
-    html[dir] ._3j8Pd.GPmgf,
-    html[dir] ._3cukQ ._1mrMQ,
-    html[dir] ._2i7Ej {
-        background-color: transparent !important;
-        background: transparent !important;
-    }
-
-    body:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-
-        if(bgImg==bg-night) {
-            background-image: url(https://i.imgur.com/TUASxwu.jpg) !important;
-        } else if(bgImg==bg-color) {
-            background-image: url(https://i.imgur.com/bn63HyZ.png) !important;
-        } else if(bgImg==bg-black) {
-            background-image: url(https://i.imgur.com/LzO907u.png) !important;
-        }
-
-        background-size: cover !important;
-        background-position: center !important;
-        filter: var(--bg-blur) !important;
-    }
-
-    [data-asset-intro-image] {
-        background-image: url(https://i.imgur.com/0Dc0nhy.png) !important;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: transparent !important;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: var(--accent) !important;
-    }
-
-    a,
-    abbr,
-    acronym,
-    address,
-    applet,
-    article,
-    aside,
-    audio,
-    b,
-    big,
-    blockquote,
-    body,
-    canvas,
-    caption,
-    center,
-    cite,
-    code,
-    dd,
-    del,
-    details,
-    dfn,
-    div,
-    dl,
-    dt,
-    em,
-    embed,
-    fieldset,
-    figcaption,
-    figure,
-    footer,
-    form,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    header,
-    hgroup,
-    html,
-    i,
-    iframe,
-    img,
-    ins,
-    input,
-    kbd,
-    label,
-    legend,
-    li,
-    mark,
-    menu,
-    nav,
-    object,
-    ol,
-    output,
-    p,
-    pre,
-    q,
-    ruby,
-    s,
-    samp,
-    section,
-    select,
-    small,
-    strike,
-    strong,
-    sub,
-    summary,
-    sup,
-    table,
-    tbody,
-    td,
-    textarea,
-    tfoot,
-    th,
-    thead,
-    time,
-    tr,
-    tt,
-    u,
-    ul,
-    var,
-    video {
-        if(font==font-default) {}
-
-        else if(font==font-modern) {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-        } else if(font==font-times) {
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif !important;
-        } else if(font==font-console) {
-            font-family: 'Lucida Console', Monaco, monospace !important;
-        } else if(font==font-consoleold) {
-            font-family: 'Courier New', Courier, monospace !important;
-        } else if(font==font-custom) {
-            font-family: customFont !important;
-        }
-
-        color: var(--text);
-    }
-
-    ._1pw2F ._1lmAJ,
-    ._1pw2F canvas,
-    ._1pw2F img {
-        max-width: 100%
-    }
-
-    @media screen and (max-width: 1300px) and (min-width: 1025px) {
-        .two ._3kF8H {
-            flex: 20% !important;
-        }
-    }
-
-    @media screen and (min-width: 1301px) {
-        .two ._3kF8H {
-            flex: 20% !important;
-        }
-    }
-
-    @media screen and (max-width: 900px) {
-        .two ._3kF8H {
-            flex: 20% !important;
-        }
-    }
-
-    ._2-MrR svg path:first-child,
-    html[dir] ._37H0O svg path:first-child,
-    svg>path:first-child,
-    ._2wn58 svg path,
-    [data-icon*=panel-emoji-] svg path,
-    [data-icon=round-x] svg path,
-    [data-icon=emoji-input] svg path,
-    html[dir] .Ijb1Q [data-icon] svg g+path,
-    [data-icon=audio-download] svg path,
-    [data-icon=highly-forwarded] svg path,
-    [data-icon=live-location-active-iphone] svg path {
-        fill: var(--text) !important;
-    }
-
-    [data-icon]:not([data-icon=status-v3-placeholder]):not([data-icon*=panel-emoji-]):not([data-icon=round-x]):not([data-icon=emoji-input]):not([data-icon=audio-download]):not([data-icon=highly-forwarded]):not([data-icon*=logo-]) svg path:nth-child(2n),
-    [data-icon]:not([data-icon=status-v3-placeholder]) svg g,
-    [data-icon=new-group] svg>path:first-child,
-    ._3PxOr svg path:nth-child(2),
-    html[dir] .Ijb1Q [data-icon] svg path,
-    [data-icon=status-dblcheck-ack] svg path,
-    [data-icon=status-ptt-blue] svg path,
-    [data-icon=msg-dblcheck-ack-light] svg path,
-    [data-icon*=settings-] svg path,
-    [data-icon=thumbs-down] svg path,
-    [data-icon=delete-danger] svg path,
-    [data-icon=exit] svg path,
-    .darwin .-XQxp._1oNFt path,
-    .web .-XQxp._1oNFt path,
-    .win32 .-XQxp._1oNFt path,
-    html[dir] ._3j8Pd._1eXOh svg path,
-    html[dir] ._3j8Pd.GPmgf svg path,
-    [data-icon=msg-dblcheck-ack] svg path {
-        fill: var(--accent) !important;
-    }
-
-    html[dir] .message-out ._2Wx_5,
-    html[dir] .message-out ._2Hp95 ._3Mf7Z,
-    html[dir] .message-out ._2Hp95 ._3qAvH,
-    html[dir] .qTFAl._3Z2tD,
-    html[dir] .qTFAl:hover,
-    html[dir] ._2UaNq._3mMX1,
-    html[dir] ._2UaNq:hover {
-        background-color: var(--messageOut) !important;
-    }
-
-    .landing-main svg path:first-child,
-    .landing-main svg rect:first-child,
-    .landing-main svg g:first-child {
-        fill: var(--svgColor) !important;
-    }
-
-    ._1y_Nu,
-    .oWVod,
-    .spinner-path,
-    ._3yudO {
-        stroke: var(--text) !important;
-    }
-
-    [data-icon=down] svg path,
-    [data-icon=round-send] svg path,
-    [data-icon=round-send-inv] svg path,
-    [data-icon=round-x] svg path,
-    [data-icon=round-x-inv] svg path {
-        opacity: 1 !important;
-    }
-
-    [data-icon=muted] svg path,
-    [data-icon=status-dblcheck] svg path,
-    [data-icon=ptt] svg path,
-    [data-icon=send] svg path {
-        fill-opacity: 1 !important;
-    }
-
-    .landing-main svg path:nth-child(2n),
-    .landing-main svg rect:nth-child(2n),
-    .landing-main svg g g path,
-    .landing-main svg path:nth-child(3n),
-    .landing-main svg rect:nth-child(3n),
-    .web .-XQxp path {
-        fill: var(--text) !important;
-    }
-
-    .landing-main .selectable-text,
-    .landing-main ._1QjgA {
-        opacity: 1 !important;
-    }
-
-    ._3dW8D,
-    .iFKgT a,
-    a,
-    ._1Jc9f,
-    .Ir_Ne {
-        color: var(--link) !important;
-    }
-
-    body {
-        if(bgImg==bg-color) {
-            background-color: bgColor !important;
-        } else if(bgBlur>0) {
-            position: absolute;
-        }
-    }
-
-    html[dir] ._1MOym,
-    html[dir] .landing-window,
-    html[dir] ._1OwC7,
     progress,
-    html[dir] .message-in ._2Wx_5,
-    html[dir] .message-in ._2Hp95 ._3Mf7Z,
-    html[dir] .message-in ._2Hp95 ._3qAvH,
-    html[dir] ._1KDYa,
-    .QRsOy,
-    html[dir] ._3RiLE,
-    html[dir] .CtSuQ .iqJMX,
-    html[dir] ._2mlOb,
-    html[dir] ._1gFYk,
-    html[dir] ._1gFYk .iqJMX,
-    html[dir] ._3_nIn,
-    html[dir] ._1o6AT ._1mrMQ,
-    html[dir] ._1hhkM,
-    html[dir] ._2AqZl,
-    html[dir] .iFKgT,
-    #side,
-    html[dir=ltr] ._30sf0,
-    html[dir] ._3tMyP {
-        background-color: var(--background) !important;
+    html[dir] ._36Q2N,
+    html[dir] ._2O84H,
+    html[dir] ._1l12d,
+    html[dir] ._1Ra05,
+    html[dir] ._2Evw0,
+    html[dir] ._3jNGW,
+    html[dir] ._3Pwfx,
+    html[dir] ._2AuNk,
+    html[dir] ._3SvgF,
+    html[dir] ._36Q2N:after,
+    html[dir] #startup,
+    #initial_startup,
+    html[dir] ._27KDP,
+    html[dir] .XFAMv,
+    html[dir="ltr"] .kA6WR._1lcup,
+    html[dir="ltr"] .kA6WR.N7Dyd,
+    html[dir] ._3dHYI,
+    html[dir] ._3ygvN,
+    html[dir] .DuUXI,
+    [data-asset-chat-background-light],
+    html[dir] .DuUXI._3G8xP,
+    html[dir] ._1GFtw,
+    html[dir] ._2PndI,
+    html[dir] ._fpIW ._25-g1,
+    html[dir] ._fpIW ._2cXFV,
+    html[dir] .mBpSq,
+    html[dir] ._3Z2oJ,
+    html[dir] ._1f763::-webkit-scrollbar-track,
+    html[dir] .YDZzC::-webkit-scrollbar-track {
+    background: transparent !important;
     }
 
-    html[dir] ._3BqnP._3VXiW,
-    html[dir] .P6z4j,
-    html[dir] .a7otO,
-    html[dir] ._3KRbU,
-    html[dir] ._3D31H,
-    html[dir] ._22oFl,
-    html[dir] ._1g8sv,
-    ._15wNI,
-    html[dir] .Orl3a,
-    html[dir] ._1WMT2._1lakC,
-    html[dir] ._1WMT2._2nA3s,
-    html[dir] ._1T8rb,
-    html[dir] ._23_1v:hover,
-    html[dir] ._3PQ7V,
-    html[dir] ._3yth3,
-    html[dir] ._27U_m:before,
-    html[dir] ._1puWZ,
-    html[dir] ._2xikZ,
-    html[dir] ._2sOZc,
-    html[dir] ._1lo-H,
-    html[dir] ._1Yz8K.XSeqj,
-    html[dir] .iFKgT:after,
-    html[dir] ._1WD8C {
-        background-color: var(--accent) !important;
+  /* Backdrop Filter (experimental) */
+if backdrop-filter {
+:root {
+--rich-text-panel-background: transparent;
+--panel-input-background: transparent;
+--message-in: transparent;
+--system-message-background: transparent;
+--unread-background: transparent;
+--incoming-background: transparent;
+}
+html[dir] ._14pZF {
+  position: relative;
+}
+._2ruyW:before,
+._3jNGW:before,
+html[dir] ._3nLE_:before,
+html[dir] ._2ig1U:before,
+html[dir="ltr"] ._1UuMR:before,
+html[dir] ._1-rz0:before,
+html[dir] ._3i3h7:before,
+html[dir] ._18Hcf:before,
+html[dir] ._3nLE_:before,
+._3Xjbn:before,
+.iHaMv:before,
+html[dir] .message-in ._2XJpe:before,
+html[dir] .message-out .i8New:before,
+html[dir] .KpuSa:before,
+html[dir] ._14pZF:before,
+html[dir] ._3DmTD:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(50px) brightness(88%);
+  background-color: transparent !important;
+  z-index: -1;
+  }
+}
+
+  /* Transparency Color Background */
+if not backdrop-filter {
+  ._2ruyW,
+  ._3jNGW,
+  html[dir] ._2ig1U,
+  html[dir="ltr"] ._1UuMR,
+  html[dir] ._1-rz0,
+  html[dir] ._3i3h7,
+  html[dir] ._18Hcf,
+  html[dir] .landing-window,
+  html[dir] .qzjMT {
+    background-color: var(--transparency-color);
+  }
+}
+
+  /* Range Fix */
+  input[type="range"] {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  .MS3ex {
+    background-color: transparent !important;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--text) !important;
+    border: 0 !important;
+    height: 1px !important;
+  }
+
+  /* Text Color */
+  body,
+  ._23HdX,
+  ._1MBn6,
+  ._2yMmO,
+  ._2KXjI,
+  .ug-ge,
+  ._2VV9C,
+  [data-icon="audio-download"],
+  ._23Tyk,
+  .DXJih,
+  ._8Kjg_,
+  ._2SPs9,
+  .landing-title,
+  ._1iKcN,
+  ._3i3h7 {
+    color: var(--text) !important;
+  }
+
+  /* Inverted Text */
+  ._20rhf,
+  .rUaqA,
+  ._2SZJP {
+    color: var(--inverse);
+  }
+
+  /* Faded Elements */
+  ._1MBn6,
+  ._2yMmO,
+  [data-icon="status-image"] svg,
+  [data-icon="muted"] svg,
+  html[dir] ._1c_mC ._2gsiG,
+  [data-icon^="status-sticker"] svg,
+  .ug-ge:not(._21RC3),
+  ._3Pwfx._3vT4i ._7W_3c,
+  ._2VV9C,
+  [data-icon="status-video"] svg,
+  html[dir="ltr"] ._2KXjI,
+  ._3Pwfx._2Kn9- .fqPQb,
+  html[dir="ltr"] .fqPQb,
+  ._1b5K6,
+  ._23Tyk,
+  .DXJih,
+  html[dir="ltr"] ._2HE1Z .Srlyw,
+  .ZQyg_._1pJHe ._3jrgD,
+  .rUaqA {
+    opacity: var(--faded-elements);
+  }
+
+  /* Light Background */
+  html[dir] ._2LAqi,
+  html[dir] .vhBNo,
+  html[dir] ._3bfj9,
+  html[dir] ._3Pwfx._1GGbM,
+  html[dir] ._3Pwfx:hover,
+  html[dir] ._22PcK._30SFc,
+  html[dir] ._14FXT._2S4cq,
+  html[dir] ._1wc4Q._3JHdl,
+  html[dir] ._3uGDl,
+  ._7l9wP {
+    background-color: var(--light-bg) !important;
+  }
+
+  ._28F_N {
+    color: var(--transparency-color);
+  }
+
+  /* Hiding */
+  html[dir] ._22PcK:after,
+  html[dir] ._1UuMR:after,
+  .gmnoprint > div div:nth-child(2),
+  .U7SeD:before,
+  #startup [role="status"],
+  ._3g-3H .ZdoFc,
+  ._2n3FI .ZdoFc {
+    display: none;
+  }
+
+  /* Message In */
+  .message-in ._3N37N {
+    color: var(--message-in);
+  }
+  html[dir] .message-in ._2XJpe,
+  html[dir] .message-out .i8New {
+    background-color: var(--message-in);
+  }
+
+  /* Custom Mensaje Out */
+  /*html[dir] .message-out ._2XJpe, html[dir] .message-in .i8New {
+		background-color: var(--light-bg);
+	}
+	.message-out ._3N37N {
+		color: var(--light-bg);
+	}*/
+
+  /* SVG Stroke Light Bg */
+  ._1LcWJ,
+  ._2w4ui {
+    stroke: var(--light-bg);
+  }
+
+  /* SVG Fill Accent */
+  [data-icon="status-v3-unread"] path:nth-child(2),
+  [data-testid*="live-location-active"] path {
+    fill: var(--accent);
+  }
+
+  /* SVG Fill Text */
+  [data-icon="add-alt"] path,
+  [data-icon="recalled"] path {
+    fill: var(--text);
+  }
+
+  /* Accent Color */
+  progress,
+  progress.vVeoP,
+  #progressbar,
+  ._2fIjT,
+  ._2P_Zu,
+  ._2zAIV a._3Oye7 {
+    color: var(--accent);
+  }
+
+  /* Body Background Color */
+  html[dir] ._3Ceb0,
+  html[dir] ._2BQrC,
+  html[dir] ._2HE1Z._2u7lO,
+  .gmnoprint > div,
+  html[dir] ._2X6EY ._1kfac,
+  html[dir] ._3pVXd {
+    background-color: var(--body-bg) !important;
+  }
+
+  /* Inverted Images */
+  .gmnoprint img {
+    filter: brightness(0) invert(100%);
+  }
+
+  /* No Border */
+  html[dir] ._3Pwfx._1GGbM ._1C6Zl,
+  html[dir] ._3Pwfx._1GGbM:after,
+  html[dir] ._1C6Zl,
+  html[dir] .XFAMv,
+  html[dir] ._1C6Zl,
+  html[dir] ._1soyC,
+  html[dir] .DuUXI,
+  html[dir] ._2irZL,
+  html[dir] ._1OZ02 + ._1OZ02 ._3YGnG,
+  html[dir="ltr"] ._1UuMR,
+  html[dir="ltr"] ._3SvgF,
+  html[dir="ltr"] ._27KDP,
+  html[dir] ._3KqnB,
+  html[dir] .dark ._22PcK {
+    border: 0 !important;
+  }
+
+  /* Text Color Border 1px */
+  html[dir] .VOr2j {
+    border: 1px solid var(--accent);
+  }
+
+  /* Transparent Border */
+  hr,
+  html[dir] .oBUnH,
+  html[dir] .Su-Gh + .Su-Gh .xYtbD,
+  html[dir="ltr"] .XukK_,
+  html[dir] ._1Q5Gk {
+    border-color: transparent !important;
+  }
+
+  /* Text Color Border */
+  ._2KoSK {
+    border-color: var(--text) !important;
+  }
+
+  /* Body Background Border */
+  html[dir] ._2UAPi {
+    border-top-color: var(--background-color);
+  }
+
+  /* No :before, nor :after */
+  ._3Pwfx._1GGbM:after,
+  ._3Pwfx:hover:after,
+  .U7SeD._3ocLm:after,
+  .U7SeD.d3gGY:after,
+  .U7SeD.xZswV:after,
+  html[dir] .landing-wrapper:before {
+    content: none;
+  }
+
+  /* No Text Shadow*/
+  html[dir] .KpuSa,
+  html[dir] ._30EVj:hover,
+  html[dir] .pOfaC {
+    text-shadow: none;
+  }
+
+  /* No Box Shadow*/
+  html[dir] ._1HX2v,
+  html[dir] .KpuSa,
+  html[dir] ._32yhp:after,
+  html[dir] ._3nLE_,
+  html[dir] ._3bfj9,
+  html[dir] ._2irZL,
+  html[dir] ._2m16s:before,
+  html[dir] ._159mM ._2JswF,
+  html[dir] ._159mM ._2zab4,
+  html[dir] ._7M8i6,
+  html[dir] ._3g-3H,
+  html[dir] ._2n3FI,
+  html[dir] ._3PX6A .emojik:focus,
+  html[dir] .emojik.selected,
+  html[dir] ._2DzhA .emojik:focus,
+  html[dir] .keyboard-user ._14pZF:focus,
+  html[dir] .dXdpP:focus img,
+  html[dir] ._3DmTD {
+    box-shadow: none;
+  }
+
+  @media screen and (min-width: 1441px) {
+    html[dir] .app-wrapper-web ._36Q2N {
+      box-shadow: none;
     }
+  }
 
-    html[dir] ._2JiCb .emojik:focus,
-    html[dir] .emojik.selected,
-    html[dir] ._1sHYl:focus img {
-        box-shadow: 0 0 0 2px #fff;
+  /* No Border Radius */
+  html[dir] ._14pZF,
+  html[dir] .KpuSa,
+  html[dir] ._2XJpe,
+  html[dir] ._1d7uX,
+  html[dir] .i8New,
+  html[dir="ltr"] ._1SmnQ,
+  html[dir] ._3g-3H,
+  html[dir] ._2n3FI,
+  html[dir] ._1mTER,
+  html[dir] ._3JHdl {
+    border-radius: 0;
+  }
+
+  /* No Outline */
+  ._12tnw:focus + ._2K7JO,
+  ._2K7JO:focus {
+    outline: none !important;
+  }
+
+  /* Placeholder */
+  ::placeholder {
+    color: var(--text) !important;
+    opacity: var(--faded-elements);
+  }
+  :-ms-input-placeholder {
+    color: var(--text) !important;
+  }
+  ::-ms-input-placeholder {
+    color: var(--text) !important;
+  }
+
+  /* Transition */
+  [role="button"] {
+    transition: all 0.015s ease;
+  }
+
+  /* Scrollbars */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--accent) !important;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  ::-webkit-scrollbar {
+    width: 2px !important;
+    height: 2px !important;
+  }
+
+  /* Typography */
+  body,
+  .os-mac.font-fix,
+  .os-mac button,
+  .os-mac input,
+  body.native.darwin button,
+  body.native.darwin input {
+    if(font-family==font-default) {}
+    else if(font==font-modern) {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    } else if(font-family==font-times) {
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif !important;
+    } else if(font-family==font-console) {
+      font-family: 'Lucida Console', Monaco, monospace !important;
+    } else if(font-family==font-consoleold) {
+      font-family: 'Courier New', Courier, monospace !important;
+    } else if(font-family==font-custom) {
+      font-family: font-custom-input !important;
     }
+  }
 
-    html[dir] ._2mlOb,
-    html[dir] ._2mlOb:before,
-    html[dir] .a7otO {
-        box-shadow: none !important;
-        text-shadow: none !important;
+  /* App Background */
+  body:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+	if(bg-image==bg-image-color) {
+		background-image:url(https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/assets/images/bg-custom-color.png);
+	} else if(bg-image==bg-image-custom) {
+		background-image: url(bg-image-url);
+	}
+    background-color: var(--body-bg)!important;
+    background-size: var(--background-size)!important;
+    background-position: var(--background-position)!important;
+  }
+  /* Blur */
+  body:after {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(var(--background-blur));
+    pointer-events: none;
+  }
+
+  /* Transparency on specific media */
+  @media screen and (min-width: 1441px) {
+    html[dir] ._1rp8-:after {
+      background-color: transparent;
     }
+  }
 
-    html[dir] ._3p0T6 {
-        background-color: #fff !important;
+  /* Width Left Pane */
+  @media screen and (min-width: 1301px) {
+    .two ._2NwAr {
+      flex: 20%;
     }
-
-    ._15wNI,
-    html[dir] ._5UNoc ._3hnO5,
-    html[dir] ._5UNoc ._3hnO5 {
-        border-color: var(--accent) !important;
+    ._2PndI {
+      width: 20%;
     }
-
-    html[dir] ._2hHc6,
-    html[dir] ._1iNsf,
-    html[dir] ._1KDYa,
-    ._2gisX,
-    html[dir] ._2KgjI,
-    html[dir] ._2j-wI,
-    html[dir] ._26pkE,
-    html[dir] ._3jzsh,
-    html[dir] ._1ebw2,
-    html[dir] ._3Fjw5,
-    html[dir] ._1DKwn,
-    html[dir] ._3979j,
-    html[dir] ._1Lz7N,
-    .gmnoprint div {
-        background-color: #000 !important;
+  }
+  @media screen and (max-width: 1300px) and (min-width: 1025px) {
+    .two ._2NwAr {
+      flex: 20%;
     }
-
-    html[dir] ._3Fq9Y,
-    html[dir] ._1JS2G {
-        background-color: rgba(0, 0, 0, .85) !important;
+    ._2PndI {
+      width: 20%;
     }
-
-    .landing-title,
-    ._2yUXW,
-    ._1cDWi,
-    ._3mkas,
-    ._3UQPd,
-    ._183ES,
-    ._201Bk,
-    ._19vo_,
-    .i1XSV._3Q3ui,
-    ._3H4MS,
-    ._2UaNq._3mMX1 .xD91K,
-    ._0LqQ,
-    ._1lxsr,
-    ._1zGQT,
-    ._3MYI2,
-    ._3RQIp,
-    ._2cR8w,
-    ._17hud,
-    input,
-    .Sl-9e,
-    ._2HHbr,
-    ._2MyYN,
-    ._2V2qB,
-    ._6xQdq,
-    ._1qWhd,
-    select,
-    .Fzl83:before,
-    ._357v7,
-    ._1wt6r,
-    ._1T8rb,
-    ._13HPh,
-    ._23_1v:hover,
-    ._3dwyT,
-    ._8fE-g,
-    .kiodY .kyJvR,
-    ._1goQ0,
-    .Y1iVg,
-    ._1o0MN,
-    ._1o6AT ._35Zop:before,
-    ._1puWZ ._28Bny,
-    ._2xikZ ._28Bny,
-    ._1puWZ ._2JIoO,
-    ._2xikZ ._2JIoO,
-    .bHCVK,
-    ._3Xx0y,
-    html[dir=ltr] ._1F9Ap,
-    ._26pkE,
-    ._1drsQ,
-    ._2IwIk,
-    ._12pGw strong,
-    ._2IHkF,
-    ._3JxFB,
-    ._3uHCS,
-    ._23MBZ,
-    ._2LRBk,
-    ._2UaNq._2ko65 .xD91K,
-    ._3FeAD .wjdTm,
-    ._2NdXo,
-    ._2ofvs,
-    ._2v02G,
-    ._3uHCS,
-    ._3qb2N {
-        color: var(--text) !important;
+  }
+  @media screen and (max-width: 1024px) and (min-width: 901px) {
+    .two ._2NwAr {
+      flex: 20%;
     }
-
-    ._2yUXW,
-    ._1lxsr,
-    html[dir] .KgevS ._0LqQ,
-    ._2cR8w,
-    ._17hud,
-    ._2V2qB,
-    ._1qWhd,
-    .Fzl83:before,
-    ._357v7,
-    ._1wt6r,
-    ._3dwyT,
-    ._8fE-g,
-    ._1goQ0,
-    ._1o0MN,
-    .bHCVK,
-    html[dir=ltr] ._1F9Ap,
-    ._2IwIk,
-    ._3JxFB,
-    ._23MBZ,
-    html[dir=ltr] ._2Bw3Q,
-    ._3FeAD .wjdTm,
-    ._1pw2F._2VkjG ._1lmAJ,
-    ._1pw2F._2VkjG canvas,
-    ._1pw2F._2VkjG img,
-    .i1XSV._3Q3ui,
-    ._3uHCS,
-    ._3fnHB,
-    ._3Ux6T,
-    ._2v02G,
-    ._3uHCS,
-    ._3qb2N {
-        opacity: .5 !important;
+    ._2PndI {
+      width: 20%;
     }
-
-    ._2ZAIy,
-    .r7sRK,
-    .matched-text,
-    ._3he1q,
-    ._2wn58,
-    ._23_1v,
-    .PjbL2,
-    ._1SYAj ._6xQdq,
-    ._23AyA,
-    span[data-mention-jid],
-    ._3THW4 {
-        color: var(--accent) !important;
+  }
+  @media screen and (max-width: 900px) {
+    .two ._2NwAr {
+      flex: 20%;
     }
-
-    progress {
-        color: var(--accent) !important;
+    ._2PndI {
+      width: 20%;
     }
+  }
 
-    html[dir] ._1pw2F {
-        padding: .5em;
-        background-color: #fff;
+  /* Fullscreen */
+  @media screen and (min-width: 1441px) {
+    .app-wrapper-web {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
-    html[dir] .ZP8RM:after,
-    html[dir] ._2WP9Q,
-    html[dir] ._2UaNq._3mMX1 ._2WP9Q,
-    html[dir] ._2UaNq._3mMX1:after,
-    html[dir] ._2UaNq._3mMX1:after,
-    html[dir] ._2UaNq:hover:after,
-    html[dir=ltr] ._2i7Ej,
-    html[dir] ._13mgZ,
-    html[dir] ._2DxRd,
-    html[dir=ltr] ._30sf0,
-    html[dir] ._39cGk,
-    html[dir] ._26JG5+._26JG5 ._27Ie2,
-    html[dir] ._26JG5:hover+._26JG5:before,
-    html[dir] ._2TLLH,
-    html[dir] ._3_-Si+._3_-Si ._2x2XP,
-    html[dir] ._2n0jo,
-    html[dir=ltr] ._2mlOb,
-    html[dir=ltr] ._1sHYl:first-child,
-    html[dir=ltr] ._2j-wI,
-    html[dir] ._3Xx0y {
-        border: 0 !important;
+    .app-wrapper-web ._36Q2N {
+      top: 0;
+      left: 0;
+      width: var(--app-width);
+      height: var(--app-height);
     }
+  }
 
-    html[dir] ._1AUdd._1SsXF,
-    html[dir] ._3qblR._1SsXF,
-    html[dir] .HNuTV,
-    html[dir] .Ir_Ne,
-    html[dir] ._3F4Fd {
-        border: 1px solid rgba(255, 255, 255, .5) !important;
+  /* Doodles */
+  [data-asset-chat-background-light],
+  [data-asset-chat-background-dark] {
+    opacity: var(--doodles-opacity) !important;
+    background-image: url(https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/assets/data-asset-chat-background.png) !important;
+    if(doodles-color==doodles-dark) {
+      filter: invert(100%)!important;
+    } else if(doodles-color==doodles-none) {
+      display: none!important;
     }
+  }
 
-    html[dir] ._3fs0K:after,
-    hr,
-    html[dir] ._1WMT2:before,
-    ._1WMT2._1lakC:after,
-    ._1WMT2._2nA3s:after,
-    ._1WMT2._2V_Wj:after,
-    html[dir] ._1FPJ-:after {
-        display: none !important;
+  /* Emoji Selection */
+  html[dir] .emojik.apple,
+  ._1DniN {
+    filter: grayscale(50%);
+    opacity: 0.5;
+    transition: all 0.15s ease;
+  }
+  html[dir] ._3PX6A .emojik:focus,
+  html[dir] .emojik.selected,
+  html[dir] .dXdpP:focus img,
+  html[dir] .emoji:hover,
+  html[dir] .emojik:hover,
+  ._1DniN:hover {
+    transform: scale(1.1);
+    transition: all 0.15s ease;
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  html[dir] ._3g-3H,
+  html[dir] ._2n3FI {
+    margin-bottom: 14px;
+  }
+  /* progressbar Fix */
+  progress[value]::-webkit-progress-bar {
+    background-color: transparent;
+  }
+  progress[value]::-webkit-progress-value {
+    background-color: transparent;
+    transition: width 0.45s ease;
+  }
+  progress[value]::-moz-progress-bar {
+    background-color: transparent;
+    transition: width 0.45s ease;
+  }
+
+  /* QR */
+  html[dir] ._1yHR2 {
+    padding: 10px;
+    background-color: var(--body-bg);
+  }
+
+   /* Startup Mod */
+if startup {
+  #initial_startup {
+  z-index: 1;
+}
+#initial_startup .spinner-container {
+  display: none !important;
+}
+html[dir] ._2XERB {
+  padding-top: 0;
+}
+html[dir="ltr"] ._2XERB {
+  left: 0;
+  margin-left: auto;
+}
+.progress-container {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+progress {
+  vertical-align: 0;
+  position: fixed;
+  bottom: 0;
+  height: 6px;
+}
+html[dir="ltr"] ._36Q2N,
+html[dir="rtl"] ._36Q2N {
+  animation: fade-in 0.9s;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+}
+
+  /* Audio Fix */
+  ._2fsgs {
+    bottom: -4px;
+  }
+
+  /* Intro Image */
+  [data-asset-intro-image-light],
+  [data-asset-intro-image-dark] {
+    if(intro-image==intro-custom) {
+      background-image: url(intro-custom-url)!important;
+    } else if(intro-image==intro-none) {
+      background-image: url(https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/assets/images/bg-custom-color.png)!important;
     }
+  }
 
-    html[dir=ltr] ._30sf0 .emoji,
-    html[dir=ltr] ._30sf0 .emojik,
-    html[dir=ltr] ._2mlOb .emoji,
-    html[dir=ltr] ._2mlOb .emojik,
-    html[dir] ._2hHc6 .emoji,
-    html[dir] ._2hHc6 .emojik,
-    li._3cfBY._2yhpw._1sHYl {
-        opacity: var(--emoji) !important;
-    }
-
-    html[dir] .emoji:hover,
-    html[dir] .emojik:hover,
-    li._3cfBY._2yhpw._1sHYl:hover {
-        opacity: 1 !important;
-        cursor: pointer;
-    }
-
-    html[dir] ._3j8Pd {
-        padding: 0 8px !important;
-    }
-
-    @media screen and (max-width: 1024px) {
-
-        html[dir=ltr] ._3fs0K,
-        html[dir=ltr] .three ._1C9rS {
-            border: 0 !important;
-        }
-    }
-
-    @media screen and (max-width: 1300px) and (min-width: 1025px) {
-        html[dir=ltr] ._3fs0K {
-            border: 0 !important;
-        }
-    }
-
-    html[dir] ._2UaNq {
-        transition: background-color .2s ease;
-    }
-
-    html[dir] ._3fs0K,
-    html[dir] ._1N6pS {
-        background: var(--background) linear-gradient(90deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0) 60px, rgba(0, 0, 0, 0) 100%) !important;
-    }
-
-    /*[[private]]*/
-    if(private==private-on) {
-
-        html[dir] ._2UaNq,
-        html[dir] ._3RWII,
-        html[dir] ._3mdDl,
-        html[dir=ltr] .NB3Gq,
-        html[dir] ._3F4Fd,
-        html[dir] ._1Bw-K,
-        html[dir] ._3X58t,
-        ._3V5x5 {
-            filter: blur(7px) grayscale(100%) brightness(50%) !important;
-            transition: filter .2s ease;
-        }
-
-        html[dir] ._2UaNq:hover,
-        html[dir] ._3RWII:hover,
-        html[dir] ._3mdDl:hover,
-        html[dir=ltr] .NB3Gq:hover,
-        html[dir] ._3F4Fd:hover,
-        html[dir] ._1Bw-K:hover,
-        html[dir] ._3X58t:hover,
-        ._3V5x5:hover {
-            filter: none !important;
-        }
-
-        .selectable-text,
-        ._1QjgA {
-            opacity: .45 !important;
-        }
-
-        @media screen and (max-width: 1300px) and (min-width: 1025px) {
-            .two ._3kF8H {
-                flex: 5% !important;
-            }
-        }
-
-        @media screen and (min-width: 1301px) {
-            .two ._3kF8H {
-                flex: 5% !important;
-            }
-        }
-
-        @media screen and (max-width: 900px) {
-            .two ._3kF8H {
-                flex: 5% !important;
-            }
-        }
-    } else if(private==private-off) {}
-
-    if(doodles==doodles-black) {
-        body:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url(https://i.imgur.com/xZai6xR.png) !important;
-            background-size: 37%;
-        }
-    } else if(doodles==doodles-white) {
-        body:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url(https://i.imgur.com/rBLuyxZ.png) !important;
-            background-size: 37%;
-        }
-    }  else if(doodles==doodles-off) {}
-
-    if(fullscreen==on) {
-        @media screen and (min-width: 1441px) {
-
-            html[dir] .app-wrapper-web ._3fUe9,
-            .app-wrapper-web ._3fUe9 {
-                height: 100% !important;
-                top: 0 !important;
-                width: 100% !important;
-                box-shadow: none !important;
-                margin: auto !important;
-            }
-        }
-    } else if(fullscreen==off) {}
-
-    if(newui==on) {
-        #main>header>div._1SwuT>div {
-            height: 50px !important;
-            width: 50px !important;
-        }
-
-        ._3V5x5 {
-            padding: 5px 10px;
-        }
-
-        html[dir] ._13mgZ,
-        ._3V5x5 {
-            border-radius: 10px;
-        }
-
-        ._3V5x5,
-        html[dir] ._13mgZ {
-            background-color: var(--background) !important;
-        }
-
-        html[dir=ltr] ._2i7Ej,
-        html[dir] ._3fs0K,
-        html[dir] ._3fs0K,
-        html[dir=ltr] ._2i7Ej,
-        html[dir] ._1N6pS {
-            background-color: transparent !important;
-            background: transparent !important;
-        }
-    } else if(newui==off) {}
+  /* Private Mode */
+  if private-mode {
+    ._1MZWu,
+html[dir] ._1ij5F,
+html[dir="ltr"] ._1vGIp,
+._2aNms,
+img {
+  filter: blur(6px) grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.2s ease;
+  transition-delay: 0.5s;
+}
+._1MZWu:hover,
+html[dir] ._1ij5F:hover,
+html[dir="ltr"] ._1vGIp:hover,
+._2aNms:hover,
+img:hover {
+  filter: none;
+  opacity: 1;
+}
+  }
 }
