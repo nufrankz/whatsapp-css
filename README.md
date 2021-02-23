@@ -51,8 +51,8 @@ By installing this style, you can configure the following options to your liking
 8. Opacity of Secondary Elements
 9. Doodles Color and Opacity
 10. Custom Font or any of the four Web Safe Font Families (Helvetica, Times, Console and Old Console)
-11. App's Width
-12. App's Height
+11. App's Width _new on v4.1.0_
+12. App's Height _new on v4.1.0_
 13. Private Mode
 14. Blurry Transparency _new on v4.1.0_
 15. Easy Startup Animation _new on v4.1.0_
