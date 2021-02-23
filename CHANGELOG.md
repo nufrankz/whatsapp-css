@@ -151,5 +151,4 @@
 **`v0.4`** whatsapp style changes (jan 12th, 2017): fixed items and no need for fullscreen (app already is in this mode), fixed icons, only bug: search box icon on top of contacts\
 **`v0.3`** enabled: full screen option & own font-type\
 **`v0.2`** font selector between already known fonts\
-**`v0.1`** some bugs - to fix: tail, no 'more chat' arrow, intro image, icons\
-\
+**`v0.1`** some bugs - to fix: tail, no 'more chat' arrow, intro image, icons
