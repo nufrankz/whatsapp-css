@@ -1,7 +1,9 @@
 `__v4.1.00__ 2021.02.21` from scratch. new: backdrop filter, new startup mod, less colors, no border radius nor anything similar (thanks to background image bug to _@Steve65309601_ on Twitter)
 
 `__v4.0.50__ 2020.10.03` updated, fixed privacy, opacities, and other things, changing theme default colors
+
 `__v4.0.43__ 2020.07.03` fixed settings bg
+
 `__v4.0.42__ 2020.07.01` this time, 18 brand new! (...) variables on :root, fixed buttons hover, search chats bg, startup spinner color, webcam allowing popup, group menction colors, qr login code
 `__v4.0.40__ 2020.06.18` new update from whatsapp (they added 18 new variables on :root selector, doing a total of 460 variables in total, phew!)
 `__v4.0.33__ 2020.06.17` fixed quoting on groups popup bg
