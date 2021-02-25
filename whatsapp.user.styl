@@ -158,12 +158,13 @@
 		--intro-background: transparent!important;
 		--compose-input-border: transparent!important;
 		--unread-bar-background: transparent!important;
+		--compose-input-background: transparent !important;
+		--app-background-stripe: transparent!important;
 		--progress-background-rgb: 0, 0, 0 !important;
 		--media-viewer-background: var(--body-bg) !important;
 		--modal-background: var(--body-bg) !important;
 		--panel-input-background: var(--body-bg) !important;
 		--status-background: var(--body-bg) !important;
-		--compose-input-background: transparent !important;
 		--modal-backdrop-solid: var(--body-bg) !important;
 		--panel-input-background: var(--body-bg) !important;
 		--live-location-footer-background: var(--body-bg) !important;
@@ -226,7 +227,7 @@
 	/* Transparent Elements */
 	body,
 	progress,
-	html[dir] ._36Q2N,
+	html[dir] ._3QfZd,
 	html[dir] ._2O84H,
 	html[dir] ._1l12d,
 	html[dir] ._1Ra05,
@@ -235,7 +236,7 @@
 	html[dir] ._3Pwfx,
 	html[dir] ._2AuNk,
 	html[dir] ._3SvgF,
-	html[dir] ._36Q2N:after,
+	html[dir] ._3QfZd:after,
 	html[dir] #startup,
 	#initial_startup,
 	html[dir] ._27KDP,
@@ -257,7 +258,8 @@
 	html[dir] .YDZzC::-webkit-scrollbar-track,
 	html[dir] ._2A8P4._1NxrT,
 	html[dir=ltr] ._3qSKL._39Lm1,
-	html[dir=ltr] ._3qSKL._3dGJA {
+	html[dir=ltr] ._3qSKL._3dGJA,
+	html[dir] .Y90D8 {
 		background: transparent !important;
 	}
 	/* Backdrop Filter (experimental) */
@@ -513,7 +515,8 @@
 	html[dir] .landing-wrapper:before,
 	html[dir] ._3LX7r:after,
 	html[dir] ._2Z4DV._2GVnY:after,
-	html[dir] ._2Z4DV:hover:after {
+	html[dir] ._2Z4DV:hover:after,
+	html[dir] ._1-qgF:after {
 		content: none;
 	}
 	/* No Text Shadow*/
@@ -545,7 +548,7 @@
 		box-shadow: none;
 	}
 	@media screen and (min-width: 1441px) {
-		html[dir] .app-wrapper-web ._36Q2N {
+		html[dir] .app-wrapper-web ._3QfZd {
 			box-shadow: none;
 		}
 	}
@@ -654,34 +657,34 @@
 	}
 	/* Width Left Pane */
 	@media screen and (min-width: 1301px) {
-		.two ._2NwAr {
+		.two ._2DPZK {
 			flex: 20%;
 		}
-		._2PndI {
+		.Y90D8 {
 			width: 20%;
 		}
 	}
 	@media screen and (max-width: 1300px) and (min-width: 1025px) {
-		.two ._2NwAr {
+		.two ._2DPZK {
 			flex: 20%;
 		}
-		._2PndI {
+		.Y90D8 {
 			width: 20%;
 		}
 	}
 	@media screen and (max-width: 1024px) and (min-width: 901px) {
-		.two ._2NwAr {
+		.two ._2DPZK {
 			flex: 20%;
 		}
-		._2PndI {
+		.Y90D8 {
 			width: 20%;
 		}
 	}
 	@media screen and (max-width: 900px) {
-		.two ._2NwAr {
+		.two ._2DPZK {
 			flex: 20%;
 		}
-		._2PndI {
+		.Y90D8 {
 			width: 20%;
 		}
 	}
@@ -692,11 +695,21 @@
 			align-items: center;
 			justify-content: center;
 		}
-		.app-wrapper-web ._36Q2N {
+		.app-wrapper-web ._3QfZd {
 			top: 0;
 			left: 0;
 			width: var(--app-width);
 			height: var(--app-height);
+		}
+	}
+	/* Custom App Size on Small Resolutions */
+	@media screen and (max-width: 1440px) {
+		._3QfZd {
+			width: var(--app-width)!important;
+			height: var(--app-height)!important;
+			align-self: center!important;
+			top: calc((calc(100vh - var(--app-height))/2))!important;
+			left: calc((calc(100vw - var(--app-width))/2))!important;
 		}
 	}
 	/* Doodles */
@@ -779,8 +792,8 @@
 			bottom: 0;
 			height: 6px;
 		}
-		html[dir="ltr"] ._36Q2N,
-		html[dir="rtl"] ._36Q2N {
+		html[dir="ltr"] ._3QfZd,
+		html[dir="rtl"] ._3QfZd {
 			animation: fade-in 0.9s;
 		}
 		@keyframes fade-in {
