@@ -2,7 +2,7 @@
 @name         Minimal Transparent Whatsapp ☺
 @description  A super minimal dark theme for Whatsapp. 20 settings including Background Image, Custom Colors and Fonts, Privacy and more.
 @namespace    nufrankz.org
-@version      4.1.1
+@version      4.1.2
 @author       nufrankz <hola@nufrankz.org> (https://github.com/nufrankz)
 @homepageURL  http://nufrankz.org/
 @supportURL   https://github.com/nufrankz/whatsapp-css/issues
@@ -135,7 +135,7 @@
 		--button-primary: var(--body-bg) !important;
 		--border-panel: transparent !important;
 		--border-default: transparent!important;
-		--border-stronger: transparent !important;
+		--border-strong: transparent !important;
 		--conversation-panel-border: transparent !important;
 		--incoming-background: var(--message-in) !important;
 		--incoming-background-deeper: transparent !important;
@@ -149,7 +149,7 @@
 		--panel-background-deep: transparent !important;
 		--button-alternative-background: transparent !important;
 		--panel-background-colored: transparent !important;
-		--border-stronger: transparent !important;
+
 		--drawer-section-background: transparent !important;
 		--unread-marker-background: transparent !important;
 		--border-panel: transparent !important;
@@ -161,6 +161,7 @@
 		--unread-bar-background: transparent!important;
 		--compose-input-background: transparent !important;
 		--app-background-stripe: transparent!important;
+		--border-list: transparent!important;
 		--progress-background-rgb: 0, 0, 0 !important;
 		--media-viewer-background: var(--body-bg) !important;
 		--modal-background: var(--body-bg) !important;
@@ -179,6 +180,7 @@
 		--drawer-gallery-background-hover: var(--light-bg) !important;
 		--button-background-disabled: var(--light-bg) !important;
 		--background-default-active: var(--light-bg)!important;
+		--butterbar-connection-background: var(--light-bg)!important;
 		--unread-background: var(--transparency-color) !important;
 		--notification-e2e-background: var(--transparency-color) !important;
 		--drawer-gallery-background-active: var(--light-bg) !important;
@@ -388,7 +390,9 @@
 	._1JAUF .OTBsx,
 	html[dir=ltr] ._2vfYK,
 	html[dir] ._2pkLM ._15smv,
-	.fKfSX.YmixP {
+	.fKfSX.YmixP,
+	._2MwRD,
+	._2Wk2O {
 		opacity: var(--faded-elements);
 	}
 	/* Light Background */
@@ -438,6 +442,10 @@
 	._2w4ui {
 		stroke: var(--light-bg);
 	}
+	/* SVG Stroke Accent */
+	._39w8M {
+		stroke: var(--accent)!important;
+	}
 	/* SVG Fill Accent */
 	[data-icon="status-v3-unread"] path:nth-child(2),
 	[data-testid*="live-location-active"] path {
@@ -463,7 +471,9 @@
 	html[dir] ._2HE1Z._2u7lO,
 	.gmnoprint > div,
 	html[dir] ._2X6EY ._1kfac,
-	html[dir] ._3pVXd {
+	html[dir] ._3pVXd,
+	._3WNg8,
+	html[dir] ._2cjxz, ._1sMV6, html[dir] .wnsuI {
 		background-color: var(--body-bg) !important;
 	}
 	/* Inverted Images */
@@ -548,7 +558,10 @@
 	html[dir] .keyboard-user ._14pZF:focus,
 	html[dir] .dXdpP:focus img,
 	html[dir] ._3DmTD,
-	html[dir] ._3LX7r._1brJQ {
+	html[dir] ._3LX7r._1brJQ,
+	html[dir] ._1In2E,
+	html[dir] ._2iHK1,
+	html[dir] ._1zmqw {
 		box-shadow: none;
 	}
 	@media screen and (min-width: 1441px) {
@@ -566,7 +579,7 @@
 	html[dir] ._3g-3H,
 	html[dir] ._2n3FI,
 	html[dir] ._1mTER,
-	html[dir] ._3JHdl {
+	html[dir] ._3JHdl, html[dir] ._3XpKm {
 		border-radius: 0;
 	}
 	/* No Outline */
@@ -577,7 +590,7 @@
 	/* Placeholder */
 	::placeholder {
 		color: var(--text) !important;
-		opacity: var(--faded-elements);
+		opacity: var(--faded-elements)!important;
 	}
 	:-ms-input-placeholder {
 		color: var(--text) !important;
