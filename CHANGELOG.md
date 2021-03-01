@@ -1,3 +1,4 @@
+**`v4.1.25`** `2021.03.01` fixed some drawer backgrounds, emoji selection background, live gps position colors
 **`v4.1.20`** `2021.02.26` fixed attached media background, some borders on inputs
 **`v4.1.01`** `2021.02.25` new production build from whatsapp's react source, with randomized classes. fixing. fixing custom app size on small resolutions
 **`v4.1.00`** `2021.02.21` from scratch. new: backdrop filter, new startup mod, less colors, no border radius nor anything similar (thanks to background image bug to _@Steve65309601_ on Twitter)

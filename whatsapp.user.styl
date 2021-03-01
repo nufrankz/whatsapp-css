@@ -136,6 +136,7 @@
 		--border-panel: transparent !important;
 		--border-default: transparent!important;
 		--border-strong: transparent !important;
+		--border-bubble: transparent!important;
 		--conversation-panel-border: transparent !important;
 		--incoming-background: var(--message-in) !important;
 		--incoming-background-deeper: transparent !important;
@@ -149,7 +150,6 @@
 		--panel-background-deep: transparent !important;
 		--button-alternative-background: transparent !important;
 		--panel-background-colored: transparent !important;
-
 		--drawer-section-background: transparent !important;
 		--unread-marker-background: transparent !important;
 		--border-panel: transparent !important;
@@ -172,6 +172,7 @@
 		--live-location-footer-background: var(--body-bg) !important;
 		--dropdown-background: var(--body-bg) !important;
 		--drawer-background: var(--body-bg) !important;
+		--drawer-gallery-background: var(--body-bg)!important;
 		--outgoing-background: var(--light-bg) !important;
 		--avatar-placeholder-background: var(--light-bg) !important;
 		--button-secondary-background-hover: var(--light-bg) !important;
@@ -320,7 +321,11 @@
 		#side,
 		._2sw49,
 		html[dir] ._3uxr9,
-		html[dir=ltr] ._1-qgF {
+		html[dir=ltr] ._1-qgF,
+		html[dir] ._2gK-X,
+		html[dir] ._2vCjo,
+		html[dir] .jKEDP ._3Kc6o,
+		html[dir] .KbVXN {
 			background-color: var(--transparency-color);
 		}
 	}
@@ -358,7 +363,8 @@
 	._1iKcN,
 	._3i3h7,
 	._3XLiO,
-	._2F1Ns {
+	._2F1Ns,
+	.KbVXN ._3R3RZ {
 		color: var(--text) !important;
 	}
 	/* Inverted Text */
@@ -465,6 +471,10 @@
 	._2zAIV a._3Oye7 {
 		color: var(--accent);
 	}
+	/* Background Accent Color */
+	html[dir] .KbVXN .D1DwJ {
+		background-color: var(--accent)!important;
+	}
 	/* Body Background Color */
 	html[dir] ._3Ceb0,
 	html[dir] ._2BQrC,
@@ -473,7 +483,9 @@
 	html[dir] ._2X6EY ._1kfac,
 	html[dir] ._3pVXd,
 	._3WNg8,
-	html[dir] ._2cjxz, ._1sMV6, html[dir] .wnsuI {
+	html[dir] ._2cjxz,
+	._1sMV6,
+	html[dir] .wnsuI {
 		background-color: var(--body-bg) !important;
 	}
 	/* Inverted Images */
@@ -561,7 +573,9 @@
 	html[dir] ._3LX7r._1brJQ,
 	html[dir] ._1In2E,
 	html[dir] ._2iHK1,
-	html[dir] ._1zmqw {
+	html[dir] ._1zmqw,
+	html[dir] .aaQbT.sykWe ._1kkeT:after,
+	html[dir] .zlxY1:focus img {
 		box-shadow: none;
 	}
 	@media screen and (min-width: 1441px) {
@@ -579,7 +593,8 @@
 	html[dir] ._3g-3H,
 	html[dir] ._2n3FI,
 	html[dir] ._1mTER,
-	html[dir] ._3JHdl, html[dir] ._3XpKm {
+	html[dir] ._3JHdl,
+	html[dir] ._3XpKm {
 		border-radius: 0;
 	}
 	/* No Outline */
@@ -753,7 +768,8 @@
 	html[dir] .dXdpP:focus img,
 	html[dir] .emoji:hover,
 	html[dir] .emojik:hover,
-	._1DniN:hover {
+	._1DniN:hover,
+	html[dir] .zlxY1:focus img {
 		transform: scale(1.1);
 		transition: all 0.15s ease;
 		filter: grayscale(0);
