@@ -32,8 +32,8 @@ Changelog is [here](/CHANGELOG.md).
 
 ## Usage
 
-1. Click the Stylus icon
-2. Click the Gear icon at the right of the Style name
+1. Click the Stylus icon on your Extensions toolbar
+2. On the popup, click the Gear icon next of this Style's name
 3. Tweak the different options, with this formatting:
    - Image URL's _must be_ enclosed in double quotes (").
    - Custom Fonts _must be_ installed on your system. You can see your installed fonts on `%windir%/fonts` on Windows, `Font Book` on MacOS, `fc-list` on Linux.
