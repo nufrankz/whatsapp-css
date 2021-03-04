@@ -6,7 +6,7 @@
 
 A _super minimalist_ dark and transparent theme for WhatsApp Web, replacing its default light and dark styles, with plenty of options.
 
-I'm updating constantly, almost each 2 days, so don't be afraid of outdated fixes.
+I'm updating it constantly, almost each couple of days, so don't be afraid of outdated fixes.
 
 Changelog is [here](/CHANGELOG.md).
 
