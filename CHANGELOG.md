@@ -6,7 +6,7 @@
 
 ## userstyles.org changelog
 
-**`v4.0.50`** `2020.10.03` updated, fixed privacy, opacities, and other things, changing theme default colors
+**`v4.0.50`** `2020.10.03` updated, fixed privacy, opacities, and other things, changing theme default colors\
 **`v4.0.43`** `2020.07.03` fixed settings bg\
 **`v4.0.42`** `2020.07.01` this time, 18 brand new! (...) variables on :root, fixed buttons hover, search chats bg, startup spinner color, webcam allowing popup, group menction colors, qr login code\
 **`v4.0.40`** `2020.06.18` new update from whatsapp (they added 18 new variables on :root selector, doing a total of 460 variables in total, phew!)\
