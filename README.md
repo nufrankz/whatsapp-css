@@ -6,7 +6,7 @@
 
 A _super minimalist_ dark and transparent theme for WhatsApp Web, replacing its default light and dark styles, with plenty of options.
 
-**Working on the fix today live.** Whatsapp takes to production a new build of its Whatsapp Web React platform, randomizing classes again. You can update the style as I correct it.
+I'm updating constantly, almost each 2 days, so don't be afraid of outdated fixes.
 
 Changelog is [here](/CHANGELOG.md).
 

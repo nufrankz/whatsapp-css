@@ -2,7 +2,7 @@
 @name         Minimal Transparent Whatsapp ☺
 @description  A super minimal dark theme for Whatsapp. 20 settings including Background Image, Custom Colors and Fonts, Privacy and more.
 @namespace    nufrankz.org
-@version      4.1.2
+@version      4.1.26
 @author       nufrankz <hola@nufrankz.org> (https://github.com/nufrankz)
 @homepageURL  http://nufrankz.org/
 @supportURL   https://github.com/nufrankz/whatsapp-css/issues
@@ -58,17 +58,15 @@
 @var text font-custom-input "Custom Font Family" "'Comic Sans'"
 @var checkbox private-mode "Private Mode" 0
 @var select doodles-color "Doodles Color" {
-  "White": "doodles-white",
-  "Dark": "doodles-dark",
-  "Off": "doodles-off"
+  "White *": "doodles-white",
+  "Dark": "doodles-dark"
 }
 @var checkbox startup "Startup Mod" 1
 @var checkbox backdrop-filter "Blurry Transparency" 0
 }
 ==/UserStyle== */
 @-moz-document domain("web.whatsapp.com") {
-	:root,
-	.dark {
+	:root, .dark {
 		/* Custom */
 		--light-bg: light-bg !important;
 		--transparency-color: transparency-color !important;
@@ -132,11 +130,13 @@
 		--notification-info-icon: var(--text) !important;
 		--butterbar-connection-primary: var(--text) !important;
 		--butterbar-connection-secondary: var(--text) !important;
+		--tooltip-text: var(--text)!important;
 		--button-primary: var(--body-bg) !important;
 		--border-panel: transparent !important;
 		--border-default: transparent!important;
 		--border-strong: transparent !important;
 		--border-bubble: transparent!important;
+		--border-stronger: transparent!important;
 		--conversation-panel-border: transparent !important;
 		--incoming-background: var(--message-in) !important;
 		--incoming-background-deeper: transparent !important;
@@ -156,7 +156,6 @@
 		--progress-background: transparent !important;
 		--search-container-background: transparent!important;
 		--search-input-background: transparent!important;
-		--intro-background: transparent!important;
 		--compose-input-border: transparent!important;
 		--unread-bar-background: transparent!important;
 		--compose-input-background: transparent !important;
@@ -196,6 +195,7 @@
 		--system-message-background: var(--transparency-color) !important;
 		--modal-backdrop: var(--transparency-color) !important;
 		--quick-action-button-background: var(--transparency-color) !important;
+		--intro-background: var(--transparency-color)!important;
 		--panel-background-deeper: transparent !important;
 		--avatar-background: var(--transparency-color) !important;
 		--attach-media-drop-overlay: var(--transparency-color) !important;
@@ -229,44 +229,12 @@
 		--thumb-border-viewer-active: var(--accent) !important;
 		--button-plain-background: var(--accent) !important;
 	}
+
 	/* Transparent Elements */
-	body,
-	progress,
-	html[dir] ._3QfZd,
-	html[dir] ._2O84H,
-	html[dir] ._1l12d,
-	html[dir] ._1Ra05,
-	html[dir] ._2Evw0,
-	html[dir] ._3jNGW,
-	html[dir] ._3Pwfx,
-	html[dir] ._2AuNk,
-	html[dir] ._3SvgF,
-	html[dir] ._3QfZd:after,
-	html[dir] #startup,
-	#initial_startup,
-	html[dir] ._27KDP,
-	html[dir] .XFAMv,
-	html[dir="ltr"] .kA6WR._1lcup,
-	html[dir="ltr"] .kA6WR.N7Dyd,
-	html[dir] ._3dHYI,
-	html[dir] ._3ygvN,
-	html[dir] .DuUXI,
-	[data-asset-chat-background-light],
-	html[dir] .DuUXI._3G8xP,
-	html[dir] ._1GFtw,
-	html[dir] ._2PndI,
-	html[dir] ._fpIW ._25-g1,
-	html[dir] ._fpIW ._2cXFV,
-	html[dir] .mBpSq,
-	html[dir] ._3Z2oJ,
-	html[dir] ._1f763::-webkit-scrollbar-track,
-	html[dir] .YDZzC::-webkit-scrollbar-track,
-	html[dir] ._2A8P4._1NxrT,
-	html[dir=ltr] ._3qSKL._39Lm1,
-	html[dir=ltr] ._3qSKL._3dGJA,
-	html[dir] .Y90D8 {
+	body, progress, html[dir] ._3QfZd, html[dir] ._2O84H, html[dir] ._1l12d, html[dir] ._1Ra05, html[dir] ._2Evw0, html[dir] ._3jNGW, html[dir] ._3Pwfx, html[dir] ._2AuNk, html[dir] ._3SvgF, html[dir] ._3QfZd:after, #initial_startup, html[dir] ._27KDP, html[dir] .XFAMv, html[dir="ltr"] .kA6WR._1lcup, html[dir="ltr"] .kA6WR.N7Dyd, html[dir] ._3dHYI, html[dir] ._3ygvN, html[dir] .DuUXI, [data-asset-chat-background-light], html[dir] .DuUXI._3G8xP, html[dir] ._1GFtw, html[dir] ._2PndI, html[dir] ._fpIW ._25-g1, html[dir] ._fpIW ._2cXFV, html[dir] .mBpSq, html[dir] ._3Z2oJ, html[dir] ._1f763::-webkit-scrollbar-track, html[dir] .YDZzC::-webkit-scrollbar-track, html[dir] ._2A8P4._1NxrT, html[dir=ltr] ._3qSKL._39Lm1, html[dir=ltr] ._3qSKL._3dGJA, html[dir] .Y90D8, html[dir] #startup, ._36H8K {
 		background: transparent !important;
 	}
+
 	/* Backdrop Filter (experimental) */
 	if backdrop-filter {
 		:root {
@@ -277,25 +245,12 @@
 			--unread-background: transparent;
 			--incoming-background: transparent;
 		}
+
 		html[dir] ._14pZF {
 			position: relative;
 		}
-		._2ruyW:before,
-		._3jNGW:before,
-		html[dir] ._3nLE_:before,
-		html[dir] ._2ig1U:before,
-		html[dir="ltr"] ._1UuMR:before,
-		html[dir] ._1-rz0:before,
-		html[dir] ._3i3h7:before,
-		html[dir] ._18Hcf:before,
-		html[dir] ._3nLE_:before,
-		._3Xjbn:before,
-		.iHaMv:before,
-		html[dir] .message-in ._2XJpe:before,
-		html[dir] .message-out .i8New:before,
-		html[dir] .KpuSa:before,
-		html[dir] ._14pZF:before,
-		html[dir] ._3DmTD:before {
+
+		._2ruyW:before, ._3jNGW:before, html[dir] ._3nLE_:before, html[dir] ._2ig1U:before, html[dir="ltr"] ._1UuMR:before, html[dir] ._1-rz0:before, html[dir] ._3i3h7:before, html[dir] ._18Hcf:before, html[dir] ._3nLE_:before, ._3Xjbn:before, .iHaMv:before, html[dir] .message-in ._2XJpe:before, html[dir] .message-out .i8New:before, html[dir] .KpuSa:before, html[dir] ._14pZF:before, html[dir] ._3DmTD:before {
 			content: "";
 			position: absolute;
 			top: 0;
@@ -307,135 +262,73 @@
 			z-index: -1;
 		}
 	}
+
 	/* Transparency Color Background */
 	if not backdrop-filter {
-		._2ruyW,
-		._3jNGW,
-		html[dir] ._2ig1U,
-		html[dir="ltr"] ._1UuMR,
-		html[dir] ._1-rz0,
-		html[dir] ._3i3h7,
-		html[dir] ._18Hcf,
-		html[dir] .landing-window,
-		html[dir] .qzjMT,
-		#side,
-		._2sw49,
-		html[dir] ._3uxr9,
-		html[dir=ltr] ._1-qgF,
-		html[dir] ._2gK-X,
-		html[dir] ._2vCjo,
-		html[dir] .jKEDP ._3Kc6o,
-		html[dir] .KbVXN {
+		._2ruyW, ._3jNGW, html[dir] ._2ig1U, html[dir="ltr"] ._1UuMR, html[dir] ._1-rz0, html[dir] ._3i3h7, html[dir] ._18Hcf, html[dir] .landing-window, html[dir] .qzjMT, #side, ._2sw49, html[dir] ._3uxr9, html[dir=ltr] ._1-qgF, html[dir] ._2gK-X, html[dir] ._2vCjo, html[dir] .jKEDP ._3Kc6o, html[dir] .KbVXN, html[dir] .message-out ._3Ppzm, html[dir] ._1clXy {
 			background-color: var(--transparency-color);
 		}
 	}
+
 	/* Range Fix */
 	input[type="range"] {
 		-webkit-appearance: none;
 		margin: 18px 0;
 		width: 100%;
 	}
+
 	input[type="range"]:focus {
 		outline: none;
 	}
+
 	.MS3ex {
 		background-color: transparent !important;
 	}
+
 	input[type="range"]::-webkit-slider-runnable-track {
 		background: var(--text) !important;
 		border: 0 !important;
 		height: 1px !important;
 	}
+
 	/* Text Color */
-	body,
-	._23HdX,
-	._1MBn6,
-	._2yMmO,
-	._2KXjI,
-	.ug-ge,
-	._2VV9C,
-	[data-icon="audio-download"],
-	._23Tyk,
-	.DXJih,
-	._8Kjg_,
-	._2SPs9,
-	.landing-title,
-	._1iKcN,
-	._3i3h7,
-	._3XLiO,
-	._2F1Ns,
-	.KbVXN ._3R3RZ {
+	body, ._23HdX, ._1MBn6, ._2yMmO, ._2KXjI, .ug-ge, ._2VV9C, [data-icon="audio-download"], ._23Tyk, .DXJih, ._8Kjg_, ._2SPs9, .landing-title, ._1iKcN, ._3i3h7, ._3XLiO, ._2F1Ns, .KbVXN ._3R3RZ {
 		color: var(--text) !important;
 	}
+
 	/* Inverted Text */
-	._20rhf,
-	.rUaqA,
-	._2SZJP {
+	._20rhf, .rUaqA, ._2SZJP {
 		color: var(--inverse);
 	}
+
 	/* Faded Elements */
-	._1MBn6,
-	._2yMmO,
-	[data-icon="status-image"] svg,
-	[data-icon="muted"] svg,
-	html[dir] ._1c_mC ._2gsiG,
-	[data-icon^="status-sticker"] svg,
-	.ug-ge:not(._21RC3),
-	._3Pwfx._3vT4i ._7W_3c,
-	._2VV9C,
-	[data-icon="status-video"] svg,
-	html[dir="ltr"] ._2KXjI,
-	._3Pwfx._2Kn9- .fqPQb,
-	html[dir="ltr"] .fqPQb,
-	._1b5K6,
-	._23Tyk,
-	.DXJih,
-	html[dir="ltr"] ._2HE1Z .Srlyw,
-	.ZQyg_._1pJHe ._3jrgD,
-	.rUaqA,
-	._1JAUF .OTBsx,
-	html[dir=ltr] ._2vfYK,
-	html[dir] ._2pkLM ._15smv,
-	.fKfSX.YmixP,
-	._2MwRD,
-	._2Wk2O {
+	._1MBn6, ._2yMmO, [data-icon="status-image"] svg, [data-icon="muted"] svg, html[dir] ._1c_mC ._2gsiG, [data-icon^="status-sticker"] svg, .ug-ge:not(._21RC3), ._3Pwfx._3vT4i ._7W_3c, ._2VV9C, [data-icon="status-video"] svg, html[dir="ltr"] ._2KXjI, ._3Pwfx._2Kn9- .fqPQb, html[dir="ltr"] .fqPQb, ._1b5K6, ._23Tyk, .DXJih, html[dir="ltr"] ._2HE1Z .Srlyw, .ZQyg_._1pJHe ._3jrgD, .rUaqA, ._1JAUF .OTBsx, html[dir=ltr] ._2vfYK, html[dir] ._2pkLM ._15smv, .fKfSX.YmixP, ._2MwRD, ._2Wk2O {
 		opacity: var(--faded-elements);
 	}
+
 	/* Light Background */
-	html[dir] ._2LAqi,
-	html[dir] .vhBNo,
-	html[dir] ._3bfj9,
-	html[dir] ._3Pwfx._1GGbM,
-	html[dir] ._3Pwfx:hover,
-	html[dir] ._22PcK._30SFc,
-	html[dir] ._14FXT._2S4cq,
-	html[dir] ._1wc4Q._3JHdl,
-	html[dir] ._3uGDl,
-	._7l9wP,
-	html[dir] ._3LX7r._1brJQ {
+	html[dir] ._2LAqi, html[dir] .vhBNo, html[dir] ._3bfj9, html[dir] ._3Pwfx._1GGbM, html[dir] ._3Pwfx:hover, html[dir] ._22PcK._30SFc, html[dir] ._14FXT._2S4cq, html[dir] ._1wc4Q._3JHdl, html[dir] ._3uGDl, ._7l9wP, html[dir] ._3LX7r._1brJQ, html[dir] .message-in ._3Ppzm {
 		background-color: var(--light-bg) !important;
 	}
-	._28F_N {
+
+	._28F_N, ._3nWnE {
 		color: var(--transparency-color);
 	}
+
 	/* Hiding */
-	html[dir] ._22PcK:after,
-	html[dir] ._1UuMR:after,
-	.gmnoprint > div div:nth-child(2),
-	.U7SeD:before,
-	#startup [role="status"],
-	._3g-3H .ZdoFc,
-	._2n3FI .ZdoFc {
+	html[dir] ._22PcK:after, html[dir] ._1UuMR:after, .gmnoprint > div div:nth-child(2), .U7SeD:before, #startup [role="status"], ._3g-3H .ZdoFc, ._2n3FI .ZdoFc {
 		display: none;
 	}
+
 	/* Message In */
 	.message-in ._3N37N {
 		color: var(--message-in);
 	}
-	html[dir] .message-in ._2XJpe,
-	html[dir] .message-out .i8New {
+
+	html[dir] .message-in ._2XJpe, html[dir] .message-out .i8New {
 		background-color: var(--message-in);
 	}
+
 	/* Custom Mensaje Out */
 	/*html[dir] .message-out ._2XJpe, html[dir] .message-in .i8New {
 		background-color: var(--light-bg);
@@ -444,215 +337,158 @@
 		color: var(--light-bg);
 	}*/
 	/* SVG Stroke Light Bg */
-	._1LcWJ,
-	._2w4ui {
+	._1LcWJ, ._2w4ui {
 		stroke: var(--light-bg);
 	}
+
 	/* SVG Stroke Accent */
 	._39w8M {
 		stroke: var(--accent)!important;
 	}
+
 	/* SVG Fill Accent */
-	[data-icon="status-v3-unread"] path:nth-child(2),
-	[data-testid*="live-location-active"] path {
+	[data-icon="status-v3-unread"] path:nth-child(2), [data-testid*="live-location-active"] path {
 		fill: var(--accent);
 	}
+
 	/* SVG Fill Text */
-	[data-icon="add-alt"] path,
-	[data-icon="recalled"] path {
+	[data-icon="add-alt"] path, [data-icon="recalled"] path {
 		fill: var(--text);
 	}
+
 	/* Accent Color */
-	progress,
-	progress.vVeoP,
-	#progressbar,
-	._2fIjT,
-	._2P_Zu,
-	._2zAIV a._3Oye7 {
+	progress, progress.vVeoP, #progressbar, ._2fIjT, ._2P_Zu, ._2zAIV a._3Oye7 {
 		color: var(--accent);
 	}
+
 	/* Background Accent Color */
 	html[dir] .KbVXN .D1DwJ {
 		background-color: var(--accent)!important;
 	}
+
 	/* Body Background Color */
-	html[dir] ._3Ceb0,
-	html[dir] ._2BQrC,
-	html[dir] ._2HE1Z._2u7lO,
-	.gmnoprint > div,
-	html[dir] ._2X6EY ._1kfac,
-	html[dir] ._3pVXd,
-	._3WNg8,
-	html[dir] ._2cjxz,
-	._1sMV6,
-	html[dir] .wnsuI {
+	html[dir] ._3Ceb0, html[dir] ._2BQrC, html[dir] ._2HE1Z._2u7lO, .gmnoprint > div, html[dir] ._2X6EY ._1kfac, html[dir] ._3pVXd, ._3WNg8, html[dir] ._2cjxz, ._1sMV6, html[dir] .wnsuI {
 		background-color: var(--body-bg) !important;
 	}
+
 	/* Inverted Images */
 	.gmnoprint img {
 		filter: brightness(0) invert(100%);
 	}
+
 	/* No Border */
-	html[dir] ._3Pwfx._1GGbM ._1C6Zl,
-	html[dir] ._3Pwfx._1GGbM:after,
-	html[dir] ._1C6Zl,
-	html[dir] .XFAMv,
-	html[dir] ._1C6Zl,
-	html[dir] ._1soyC,
-	html[dir] .DuUXI,
-	html[dir] ._2irZL,
-	html[dir] ._1OZ02 + ._1OZ02 ._3YGnG,
-	html[dir="ltr"] ._1UuMR,
-	html[dir="ltr"] ._3SvgF,
-	html[dir="ltr"] ._27KDP,
-	html[dir] ._3KqnB,
-	html[dir] .dark ._22PcK,
-	html[dir] .TbtXF,
-	html[dir] ._2WwJ0,
-	html[dir] ._2MVf7 {
+	html[dir] ._3Pwfx._1GGbM ._1C6Zl, html[dir] ._3Pwfx._1GGbM:after, html[dir] ._1C6Zl, html[dir] .XFAMv, html[dir] ._1C6Zl, html[dir] ._1soyC, html[dir] .DuUXI, html[dir] ._2irZL, html[dir] ._1OZ02 + ._1OZ02 ._3YGnG, html[dir="ltr"] ._1UuMR, html[dir="ltr"] ._3SvgF, html[dir="ltr"] ._27KDP, html[dir] ._3KqnB, html[dir] .dark ._22PcK, html[dir] .TbtXF, html[dir] ._2WwJ0, html[dir] ._2MVf7 {
 		border: 0 !important;
 	}
+
 	/* Text Color Border 1px */
-	html[dir] .VOr2j,
-	html[dir] ._38M1B {
+	html[dir] .VOr2j, html[dir] ._38M1B {
 		border: 1px solid var(--accent);
 	}
+
 	/* Transparent Border */
-	hr,
-	html[dir] .oBUnH,
-	html[dir] .Su-Gh + .Su-Gh .xYtbD,
-	html[dir="ltr"] .XukK_,
-	html[dir] ._1Q5Gk {
+	hr, html[dir] .oBUnH, html[dir] .Su-Gh + .Su-Gh .xYtbD, html[dir="ltr"] .XukK_, html[dir] ._1Q5Gk {
 		border-color: transparent !important;
 	}
+
 	/* Text Color Border */
 	._2KoSK {
 		border-color: var(--text) !important;
 	}
+
 	/* Body Background Border */
 	html[dir] ._2UAPi {
 		border-top-color: var(--background-color);
 	}
+
 	/* No :before, nor :after */
-	._3Pwfx._1GGbM:after,
-	._3Pwfx:hover:after,
-	.U7SeD._3ocLm:after,
-	.U7SeD.d3gGY:after,
-	.U7SeD.xZswV:after,
-	html[dir] .landing-wrapper:before,
-	html[dir] ._3LX7r:after,
-	html[dir] ._2Z4DV._2GVnY:after,
-	html[dir] ._2Z4DV:hover:after,
-	html[dir] ._1-qgF:after {
+	._3Pwfx._1GGbM:after, ._3Pwfx:hover:after, .U7SeD._3ocLm:after, .U7SeD.d3gGY:after, .U7SeD.xZswV:after, html[dir] .landing-wrapper:before, html[dir] ._3LX7r:after, html[dir] ._2Z4DV._2GVnY:after, html[dir] ._2Z4DV:hover:after, html[dir] ._1-qgF:after, html[dir] ._1-D-8.jf2u-:after, html[dir] ._1-D-8.jf2u-:before, html[dir] ._1-D-8._3kRTS:after, html[dir] ._1-D-8._3kRTS:before, html[dir] ._1-D-8._1nsAh:after, html[dir] ._1-D-8._1nsAh:before, html[dir] ._1pLAS:after {
 		content: none;
 	}
+
 	/* No Text Shadow*/
-	html[dir] .KpuSa,
-	html[dir] ._30EVj:hover,
-	html[dir] .pOfaC {
+	html[dir] .KpuSa, html[dir] ._30EVj:hover, html[dir] .pOfaC {
 		text-shadow: none;
 	}
+
 	/* No Box Shadow*/
-	html[dir] ._1HX2v,
-	html[dir] .KpuSa,
-	html[dir] ._32yhp:after,
-	html[dir] ._3nLE_,
-	html[dir] ._3bfj9,
-	html[dir] ._2irZL,
-	html[dir] ._2m16s:before,
-	html[dir] ._159mM ._2JswF,
-	html[dir] ._159mM ._2zab4,
-	html[dir] ._7M8i6,
-	html[dir] ._3g-3H,
-	html[dir] ._2n3FI,
-	html[dir] ._3PX6A .emojik:focus,
-	html[dir] .emojik.selected,
-	html[dir] ._2DzhA .emojik:focus,
-	html[dir] .keyboard-user ._14pZF:focus,
-	html[dir] .dXdpP:focus img,
-	html[dir] ._3DmTD,
-	html[dir] ._3LX7r._1brJQ,
-	html[dir] ._1In2E,
-	html[dir] ._2iHK1,
-	html[dir] ._1zmqw,
-	html[dir] .aaQbT.sykWe ._1kkeT:after,
-	html[dir] .zlxY1:focus img {
+	html[dir] ._1HX2v, html[dir] .KpuSa, html[dir] ._32yhp:after, html[dir] ._3nLE_, html[dir] ._3bfj9, html[dir] ._2irZL, html[dir] ._2m16s:before, html[dir] ._159mM ._2JswF, html[dir] ._159mM ._2zab4, html[dir] ._7M8i6, html[dir] ._3g-3H, html[dir] ._2n3FI, html[dir] ._3PX6A .emojik:focus, html[dir] .emojik.selected, html[dir] ._2DzhA .emojik:focus, html[dir] .keyboard-user ._14pZF:focus, html[dir] .dXdpP:focus img, html[dir] ._3DmTD, html[dir] ._3LX7r._1brJQ, html[dir] ._1In2E, html[dir] ._2iHK1, html[dir] ._1zmqw, html[dir] .aaQbT.sykWe ._1kkeT:after, html[dir] .zlxY1:focus img, html[dir] .dark ._1-qgF {
 		box-shadow: none;
 	}
+
 	@media screen and (min-width: 1441px) {
 		html[dir] .app-wrapper-web ._3QfZd {
 			box-shadow: none;
 		}
 	}
+
 	/* No Border Radius */
-	html[dir] ._14pZF,
-	html[dir] .KpuSa,
-	html[dir] ._2XJpe,
-	html[dir] ._1d7uX,
-	html[dir] .i8New,
-	html[dir="ltr"] ._1SmnQ,
-	html[dir] ._3g-3H,
-	html[dir] ._2n3FI,
-	html[dir] ._1mTER,
-	html[dir] ._3JHdl,
-	html[dir] ._3XpKm {
+	html[dir] ._14pZF, html[dir] .KpuSa, html[dir] ._2XJpe, html[dir] ._1d7uX, html[dir] .i8New, html[dir="ltr"] ._1SmnQ, html[dir] ._3g-3H, html[dir] ._2n3FI, html[dir] ._1mTER, html[dir] ._3JHdl, html[dir] ._3XpKm {
 		border-radius: 0;
 	}
+
 	/* No Outline */
-	._12tnw:focus + ._2K7JO,
-	._2K7JO:focus {
+	._12tnw:focus + ._2K7JO, ._2K7JO:focus {
 		outline: none !important;
 	}
+
 	/* Placeholder */
 	::placeholder {
 		color: var(--text) !important;
 		opacity: var(--faded-elements)!important;
 	}
+
 	:-ms-input-placeholder {
 		color: var(--text) !important;
 	}
+
 	::-ms-input-placeholder {
 		color: var(--text) !important;
 	}
+
 	/* Transition */
 	[role="button"] {
 		transition: all 0.015s ease;
 	}
+
 	/* Scrollbars */
 	::-webkit-scrollbar-thumb {
 		background-color: var(--accent) !important;
 	}
+
 	::-webkit-scrollbar-track {
 		background: transparent !important;
 	}
+
 	::-webkit-scrollbar {
 		width: 2px !important;
 		height: 2px !important;
 	}
+
 	/* Typography */
-	body,
-	.os-mac.font-fix,
-	.os-mac button,
-	.os-mac input,
-	body.native.darwin button,
-	body.native.darwin input {
+	body, .os-mac.font-fix, .os-mac button, .os-mac input, body.native.darwin button, body.native.darwin input {
 		if(font-family==font-default) {}
 		else if(font==font-modern) {
 			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 		}
+
 		else if(font-family==font-times) {
 			font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif !important;
 		}
+
 		else if(font-family==font-console) {
 			font-family: 'Lucida Console', Monaco, monospace !important;
 		}
+
 		else if(font-family==font-consoleold) {
 			font-family: 'Courier New', Courier, monospace !important;
 		}
+
 		else if(font-family==font-custom) {
 			font-family: font-custom-input !important;
 		}
 	}
+
 	/* App Background */
 	body:before {
 		content: "";
@@ -664,13 +500,16 @@
 		if(bg-image==bg-image-color) {
 			background-image: url(https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/assets/images/bg-custom-color.png);
 		}
+
 		else if(bg-image==bg-image-custom) {
 			background-image: url(bg-image-url);
 		}
+
 		background-color: var(--body-bg)!important;
 		background-size: var(--background-size)!important;
 		background-position: var(--background-position)!important;
 	}
+
 	/* Blur */
 	body:after {
 		content: "";
@@ -682,45 +521,55 @@
 		backdrop-filter: blur(var(--background-blur));
 		pointer-events: none;
 	}
+
 	/* Transparency on specific media */
 	@media screen and (min-width: 1441px) {
 		html[dir] ._1rp8-:after {
 			background-color: transparent;
 		}
 	}
+
 	/* Width Left Pane */
 	@media screen and (min-width: 1301px) {
 		.two ._2DPZK {
 			flex: 20%;
 		}
+
 		.Y90D8 {
 			width: 20%;
 		}
 	}
+
 	@media screen and (max-width: 1300px) and (min-width: 1025px) {
 		.two ._2DPZK {
 			flex: 20%;
 		}
+
 		.Y90D8 {
 			width: 20%;
 		}
 	}
+
 	@media screen and (max-width: 1024px) and (min-width: 901px) {
 		.two ._2DPZK {
 			flex: 20%;
 		}
+
 		.Y90D8 {
 			width: 20%;
 		}
 	}
+
 	@media screen and (max-width: 900px) {
 		.two ._2DPZK {
 			flex: 20%;
 		}
+
 		.Y90D8 {
 			width: 20%;
 		}
 	}
+
 	/* Fullscreen */
 	@media screen and (min-width: 1441px) {
 		.app-wrapper-web {
@@ -728,6 +577,7 @@
 			align-items: center;
 			justify-content: center;
 		}
+
 		.app-wrapper-web ._3QfZd {
 			top: 0;
 			left: 0;
@@ -735,6 +585,7 @@
 			height: var(--app-height);
 		}
 	}
+
 	/* Custom App Size on Small Resolutions */
 	@media screen and (max-width: 1440px) {
 		._3QfZd {
@@ -745,73 +596,74 @@
 			left: calc((calc(100vw - var(--app-width))/2))!important;
 		}
 	}
+
 	/* Doodles */
-	[data-asset-chat-background-light],
-	[data-asset-chat-background-dark] {
+	[data-asset-chat-background-light], [data-asset-chat-background-dark] {
 		opacity: var(--doodles-opacity) !important;
 		background-image: url(https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/assets/data-asset-chat-background.png) !important;
 		if(doodles-color==doodles-dark) {
 			filter: invert(100%)!important;
 		}
-		else if(doodles-color==doodles-none) {
-			display: none!important;
-		}
 	}
+
 	/* Emoji Selection */
-	html[dir] .emojik.apple,
-	._1DniN {
+	html[dir] .emojik.apple, ._1DniN {
 		filter: grayscale(50%);
 		opacity: 0.5;
 		transition: all 0.15s ease;
 	}
-	html[dir] ._3PX6A .emojik:focus,
-	html[dir] .emojik.selected,
-	html[dir] .dXdpP:focus img,
-	html[dir] .emoji:hover,
-	html[dir] .emojik:hover,
-	._1DniN:hover,
-	html[dir] .zlxY1:focus img {
+
+	html[dir] ._3PX6A .emojik:focus, html[dir] .emojik.selected, html[dir] .dXdpP:focus img, html[dir] .emoji:hover, html[dir] .emojik:hover, ._1DniN:hover, html[dir] .zlxY1:focus img {
 		transform: scale(1.1);
 		transition: all 0.15s ease;
 		filter: grayscale(0);
 		opacity: 1;
 	}
-	html[dir] ._3g-3H,
-	html[dir] ._2n3FI {
+
+	html[dir] ._3g-3H, html[dir] ._2n3FI {
 		margin-bottom: 14px;
 	}
+
 	/* progressbar Fix */
 	progress[value]::-webkit-progress-bar {
 		background-color: transparent;
 	}
+
 	progress[value]::-webkit-progress-value {
 		background-color: transparent;
-		transition: width 0.45s ease;
+		transition: all 1s ease;
 	}
+
 	progress[value]::-moz-progress-bar {
 		background-color: transparent;
 		transition: width 0.45s ease;
 	}
+
 	/* QR */
 	html[dir] ._1yHR2 {
 		padding: 10px;
 		background-color: var(--body-bg);
 	}
+
 	/* Startup Mod */
 	if startup {
 		#initial_startup {
 			z-index: 1;
 		}
+
 		#initial_startup .spinner-container {
 			display: none !important;
 		}
-		html[dir] ._2XERB {
+
+		html[dir] ._37lq_ {
 			padding-top: 0;
 		}
-		html[dir="ltr"] ._2XERB {
+
+		html[dir="ltr"] ._37lq_ {
 			left: 0;
 			margin-left: auto;
 		}
+
 		.progress-container {
 			width: 100%;
 			height: 100%;
@@ -820,56 +672,60 @@
 			margin: 0;
 			padding: 0;
 		}
+
 		progress {
 			vertical-align: 0;
 			position: fixed;
 			bottom: 0;
 			height: 6px;
+			transition: all 1s ease;
 		}
-		html[dir="ltr"] ._3QfZd,
-		html[dir="rtl"] ._3QfZd {
+
+		html[dir] .G8bNp {
+			transform-origin: unset;
+		}
+
+		html[dir="ltr"] ._3QfZd, html[dir="rtl"] ._3QfZd {
 			animation: fade-in 0.9s;
 		}
+
 		@keyframes fade-in {
 			from {
 				opacity: 0;
 			}
+
 			to {
 				opacity: 1;
 			}
 		}
 	}
+
 	/* Audio Fix */
 	._2O_ZT {
 		bottom: -4px;
 	}
+
 	/* Intro Image */
-	[data-asset-intro-image-light],
-	[data-asset-intro-image-dark] {
+	[data-asset-intro-image-light], [data-asset-intro-image-dark] {
 		if(intro-image==intro-custom) {
 			background-image: url(intro-custom-url)!important;
 		}
+
 		else if(intro-image==intro-none) {
 			background-image: url(https://raw.githubusercontent.com/nufrankz/whatsapp-css/master/assets/images/bg-custom-color.png)!important;
 		}
 	}
+
 	/* Private Mode */
 	if private-mode {
-		._1MZWu,
-		html[dir] ._1ij5F,
-		html[dir="ltr"] ._1vGIp,
-		._2aNms,
-		img {
+		._2aBzC, html[dir] ._24wtQ, html[dir="ltr"] ._2uaUb, img {
 			filter: blur(6px) grayscale(100%);
 			opacity: 0.7;
 			transition: all 0.2s ease;
 			transition-delay: 0.5s;
 		}
-		._1MZWu:hover,
-		html[dir] ._1ij5F:hover,
-		html[dir="ltr"] ._1vGIp:hover,
-		._2aNms:hover,
-		img:hover {
+
+		._2aBzC:hover, html[dir] ._24wtQ:hover, html[dir="ltr"] ._2uaUb:hover, img:hover {
 			filter: none;
 			opacity: 1;
 		}
