@@ -1,3 +1,4 @@
+**`v4.1.27`** `2021.03.10` fixed outgoing spinner color\
 **`v4.1.26`** `2021.03.04` fixed replied comments background, inital animation, borders on chat rows\
 **`v4.1.25`** `2021.03.01` fixed some drawer backgrounds, emoji selection background, live gps position colors\
 **`v4.1.20`** `2021.02.26` fixed attached media background, some borders on inputs\
