@@ -2,7 +2,7 @@
 @name         Minimal Transparent Whatsapp ☺
 @description  A super minimal dark theme for Whatsapp. 20 settings including Background Image, Custom Colors and Fonts, Privacy and more.
 @namespace    nufrankz.org
-@version      4.1.27
+@version      4.1.28
 @author       nufrankz <hola@nufrankz.org> (https://github.com/nufrankz)
 @homepageURL  http://nufrankz.org/
 @supportURL   https://github.com/nufrankz/whatsapp-css/issues
@@ -132,6 +132,7 @@
 		--butterbar-connection-secondary: var(--text) !important;
 		--tooltip-text: var(--text)!important;
 		--spinner-outgoing: var(--text)!important;
+		--icon-search-back: var(--text)!important;
 		--button-primary: var(--body-bg) !important;
 		--border-panel: transparent !important;
 		--border-default: transparent!important;
@@ -286,14 +287,15 @@
 		background-color: transparent !important;
 	}
 
-	input[type="range"]::-webkit-slider-runnable-track {
+	input[type="range"]::-webkit-slider-runnable-track, ._3hTRQ {
 		background: var(--text) !important;
 		border: 0 !important;
 		height: 1px !important;
+		opacity: var(--faded-elements);
 	}
 
 	/* Text Color */
-	body, ._23HdX, ._1MBn6, ._2yMmO, ._2KXjI, .ug-ge, ._2VV9C, [data-icon="audio-download"], ._23Tyk, .DXJih, ._8Kjg_, ._2SPs9, .landing-title, ._1iKcN, ._3i3h7, ._3XLiO, ._2F1Ns, .KbVXN ._3R3RZ {
+	body, ._23HdX, ._1MBn6, ._2yMmO, ._2KXjI, .ug-ge, ._2VV9C, [data-icon="audio-download"], ._23Tyk, .DXJih, ._8Kjg_, ._2SPs9, .landing-title, ._1iKcN, ._3i3h7, ._3XLiO, ._2F1Ns, .KbVXN ._3R3RZ, ._28Dfr, .SncVf, ._1vPFm, ._1yOQ- {
 		color: var(--text) !important;
 	}
 
@@ -303,7 +305,7 @@
 	}
 
 	/* Faded Elements */
-	._1MBn6, ._2yMmO, [data-icon="status-image"] svg, [data-icon="muted"] svg, html[dir] ._1c_mC ._2gsiG, [data-icon^="status-sticker"] svg, .ug-ge:not(._21RC3), ._3Pwfx._3vT4i ._7W_3c, ._2VV9C, [data-icon="status-video"] svg, html[dir="ltr"] ._2KXjI, ._3Pwfx._2Kn9- .fqPQb, html[dir="ltr"] .fqPQb, ._1b5K6, ._23Tyk, .DXJih, html[dir="ltr"] ._2HE1Z .Srlyw, .ZQyg_._1pJHe ._3jrgD, .rUaqA, ._1JAUF .OTBsx, html[dir=ltr] ._2vfYK, html[dir] ._2pkLM ._15smv, .fKfSX.YmixP, ._2MwRD, ._2Wk2O {
+	._1MBn6, ._2yMmO, [data-icon="status-image"] svg, [data-icon="muted"] svg, html[dir] ._1c_mC ._2gsiG, [data-icon^="status-sticker"] svg, .ug-ge:not(._21RC3), ._3Pwfx._3vT4i ._7W_3c, ._2VV9C, [data-icon="status-video"] svg, html[dir="ltr"] ._2KXjI, ._3Pwfx._2Kn9- .fqPQb, html[dir="ltr"] .fqPQb, ._1b5K6, ._23Tyk, .DXJih, html[dir="ltr"] ._2HE1Z .Srlyw, .ZQyg_._1pJHe ._3jrgD, .rUaqA, ._1JAUF .OTBsx, html[dir=ltr] ._2vfYK, html[dir] ._2pkLM ._15smv, .fKfSX.YmixP, ._2MwRD, ._2Wk2O, ._2IyWz, ._17Osw {
 		opacity: var(--faded-elements);
 	}
 
@@ -413,7 +415,7 @@
 	}
 
 	/* No Box Shadow*/
-	html[dir] ._1HX2v, html[dir] .KpuSa, html[dir] ._32yhp:after, html[dir] ._3nLE_, html[dir] ._3bfj9, html[dir] ._2irZL, html[dir] ._2m16s:before, html[dir] ._159mM ._2JswF, html[dir] ._159mM ._2zab4, html[dir] ._7M8i6, html[dir] ._3g-3H, html[dir] ._2n3FI, html[dir] ._3PX6A .emojik:focus, html[dir] .emojik.selected, html[dir] ._2DzhA .emojik:focus, html[dir] .keyboard-user ._14pZF:focus, html[dir] .dXdpP:focus img, html[dir] ._3DmTD, html[dir] ._3LX7r._1brJQ, html[dir] ._1In2E, html[dir] ._2iHK1, html[dir] ._1zmqw, html[dir] .aaQbT.sykWe ._1kkeT:after, html[dir] .zlxY1:focus img, html[dir] .dark ._1-qgF {
+	html[dir] ._1HX2v, html[dir] .KpuSa, html[dir] ._32yhp:after, html[dir] ._3nLE_, html[dir] ._3bfj9, html[dir] ._2irZL, html[dir] ._2m16s:before, html[dir] ._159mM ._2JswF, html[dir] ._159mM ._2zab4, html[dir] ._7M8i6, html[dir] ._3g-3H, html[dir] ._2n3FI, html[dir] ._3PX6A .emojik:focus, html[dir] .emojik.selected, html[dir] ._2DzhA .emojik:focus, html[dir] .keyboard-user ._14pZF:focus, html[dir] .dXdpP:focus img, html[dir] ._3DmTD, html[dir] ._3LX7r._1brJQ, html[dir] ._1In2E, html[dir] ._2iHK1, html[dir] ._1zmqw, html[dir] .aaQbT.sykWe ._1kkeT:after, html[dir] .zlxY1:focus img, html[dir] .dark ._1-qgF, html[dir] ._20zqk {
 		box-shadow: none;
 	}
 
@@ -424,7 +426,7 @@
 	}
 
 	/* No Border Radius */
-	html[dir] ._14pZF, html[dir] .KpuSa, html[dir] ._2XJpe, html[dir] ._1d7uX, html[dir] .i8New, html[dir="ltr"] ._1SmnQ, html[dir] ._3g-3H, html[dir] ._2n3FI, html[dir] ._1mTER, html[dir] ._3JHdl, html[dir] ._3XpKm {
+	html[dir] ._14pZF, html[dir] .KpuSa, html[dir] ._2XJpe, html[dir] ._1d7uX, html[dir] .i8New, html[dir="ltr"] ._1SmnQ, html[dir] ._3g-3H, html[dir] ._2n3FI, html[dir] ._1mTER, html[dir] ._3JHdl, html[dir] ._3XpKm, html[dir] ._2MfUK, html[dir] ._3Ppzm, html[dir=ltr] ._3eu_9, html[dir] ._1sPn5, html[dir] ._2kR4B, html[dir] ._3u6fL {
 		border-radius: 0;
 	}
 
@@ -699,11 +701,6 @@
 				opacity: 1;
 			}
 		}
-	}
-
-	/* Audio Fix */
-	._2O_ZT {
-		bottom: -4px;
 	}
 
 	/* Intro Image */
