@@ -37,7 +37,7 @@ Changelog is [here](/CHANGELOG.md).
 3. Tweak the different options, with this formatting:
    - Image URL's _must be_ enclosed in double quotes (`"`).
    - Custom Fonts _must be_ installed on your system. You can see your installed fonts on `%windir%/fonts` on Windows, `Font Book` on MacOS, `fc-list` on Linux. Format for Custom Fonts are usually enclosed in simple or double quotes, or have CamelCase names.
-4. Your changes will be automatically applied, unless :black_square_button: `on change` checkbox is \_unchecked\* at the bottom
+4. Your changes will be automatically applied, unless `on change` checkbox is \_unchecked\* at the bottom
 
 ## Features
 
