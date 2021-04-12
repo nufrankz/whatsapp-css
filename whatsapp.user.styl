@@ -2,7 +2,7 @@
 @name         Minimal Transparent Whatsapp ☺
 @description  A super minimal dark theme for Whatsapp. 20 settings including Background Image, Custom Colors and Fonts, Privacy and more.
 @namespace    nufrankz.org
-@version      4.1.28
+@version      4.1.30
 @author       nufrankz <hola@nufrankz.org> (https://github.com/nufrankz)
 @homepageURL  http://nufrankz.org/
 @supportURL   https://github.com/nufrankz/whatsapp-css/issues
@@ -30,6 +30,8 @@
   "No Scale": "auto",
   "Stretch": "100% 100%"
 }
+@var range bg-brightness "Background Image Brightness" [100,0,100,1,"%"]
+@var range bg-saturate "Background Image Saturation" [100,0,100,1,"%"]
 @var select background-position "Background Position" {
   "Left Top": "left top",
   "Left Center": "left center",
@@ -239,20 +241,33 @@
 
 	/* Backdrop Filter (experimental) */
 	if backdrop-filter {
-		:root {
-			--rich-text-panel-background: transparent;
-			--panel-input-background: transparent;
-			--message-in: transparent;
-			--system-message-background: transparent;
-			--unread-background: transparent;
-			--incoming-background: transparent;
+		:root, .dark {
+			--rich-text-panel-background: transparent!important;
+			--panel-input-background: transparent!important;
+			--message-in: transparent!important;
+			--system-message-background: transparent!important;
+			--unread-background: transparent!important;
+			--incoming-background: transparent!important;
+			--outgoing-background: transparent!important;
+			--dropdown-background: transparent!important;
+			--body-bg: transparent!important;
+			--quick-action-button-background: transparent!important;
+			--drawer-background-deep: transparent!important;
+			--media-viewer-background: transparent!important;
+			--status-background: transparent!important;
+			--inverse: body-bg!important;
+			--photopicker-overlay-background: transparent!important;
 		}
 
-		html[dir] ._14pZF {
+		html[dir] .wnsuI, html[dir] ._1JAUF._1aAu5 {
+			background-color: transparent!important;
+		}
+
+		html[dir] ._14pZF, html[dir] .L6jO- {
 			position: relative;
 		}
 
-		._2ruyW:before, ._3jNGW:before, html[dir] ._3nLE_:before, html[dir] ._2ig1U:before, html[dir="ltr"] ._1UuMR:before, html[dir] ._1-rz0:before, html[dir] ._3i3h7:before, html[dir] ._18Hcf:before, html[dir] ._3nLE_:before, ._3Xjbn:before, .iHaMv:before, html[dir] .message-in ._2XJpe:before, html[dir] .message-out .i8New:before, html[dir] .KpuSa:before, html[dir] ._14pZF:before, html[dir] ._3DmTD:before {
+		html[dir=ltr] ._1-qgF:before, #side:before, #main footer:before, html[dir=ltr] .-fxbk:before, html[dir] ._24wtQ:before, html[dir] ._1qAEq:before, ._1sMV6:before, html[dir] ._2wFt8:before, html[dir] ._3nHC-:before, html[dir] .wnsuI:before, html[dir] ._26Bcu:before, html[dir] ._1a3Oi:before, html[dir] ._355RO:before, .DCJBm:before, html[dir] ._1JAUF._1aAu5:before, html[dir] .L6jO-:before, html[dir] ._2qsE7:before {
 			content: "";
 			position: absolute;
 			top: 0;
@@ -262,6 +277,14 @@
 			backdrop-filter: blur(50px) brightness(88%);
 			background-color: transparent !important;
 			z-index: -1;
+		}
+
+		html[dir] ._2wFt8:before, html[dir] ._3nHC-:before {
+			border-radius: 50%!important;
+		}
+
+		.DCJBm {
+			will-change: unset!important;
 		}
 	}
 
@@ -295,7 +318,7 @@
 	}
 
 	/* Text Color */
-	body, ._23HdX, ._1MBn6, ._2yMmO, ._2KXjI, .ug-ge, ._2VV9C, [data-icon="audio-download"], ._23Tyk, .DXJih, ._8Kjg_, ._2SPs9, .landing-title, ._1iKcN, ._3i3h7, ._3XLiO, ._2F1Ns, .KbVXN ._3R3RZ, ._28Dfr, .SncVf, ._1vPFm, ._1yOQ- {
+	body, ._23HdX, ._1MBn6, ._2yMmO, ._2KXjI, .ug-ge, ._2VV9C, [data-icon="audio-download"], ._23Tyk, .DXJih, ._8Kjg_, ._2SPs9, .landing-title, ._1iKcN, ._3i3h7, ._3XLiO, ._2F1Ns, .KbVXN ._3R3RZ, ._28Dfr, .SncVf, ._1vPFm, ._1yOQ-, ._27U5d {
 		color: var(--text) !important;
 	}
 
@@ -380,7 +403,7 @@
 	}
 
 	/* No Border */
-	html[dir] ._3Pwfx._1GGbM ._1C6Zl, html[dir] ._3Pwfx._1GGbM:after, html[dir] ._1C6Zl, html[dir] .XFAMv, html[dir] ._1C6Zl, html[dir] ._1soyC, html[dir] .DuUXI, html[dir] ._2irZL, html[dir] ._1OZ02 + ._1OZ02 ._3YGnG, html[dir="ltr"] ._1UuMR, html[dir="ltr"] ._3SvgF, html[dir="ltr"] ._27KDP, html[dir] ._3KqnB, html[dir] .dark ._22PcK, html[dir] .TbtXF, html[dir] ._2WwJ0, html[dir] ._2MVf7 {
+	html[dir] ._3Pwfx._1GGbM ._1C6Zl, html[dir] ._3Pwfx._1GGbM:after, html[dir] ._1C6Zl, html[dir] .XFAMv, html[dir] ._1C6Zl, html[dir] ._1soyC, html[dir] .DuUXI, html[dir] ._2irZL, html[dir] ._1OZ02 + ._1OZ02 ._3YGnG, html[dir="ltr"] ._1UuMR, html[dir="ltr"] ._3SvgF, html[dir="ltr"] ._27KDP, html[dir] ._3KqnB, html[dir] .dark ._22PcK, html[dir] .TbtXF, html[dir] ._2WwJ0, html[dir] ._2MVf7, html[dir] ._1T8sW, html[dir=ltr] ._1-qgF {
 		border: 0 !important;
 	}
 
@@ -415,7 +438,7 @@
 	}
 
 	/* No Box Shadow*/
-	html[dir] ._1HX2v, html[dir] .KpuSa, html[dir] ._32yhp:after, html[dir] ._3nLE_, html[dir] ._3bfj9, html[dir] ._2irZL, html[dir] ._2m16s:before, html[dir] ._159mM ._2JswF, html[dir] ._159mM ._2zab4, html[dir] ._7M8i6, html[dir] ._3g-3H, html[dir] ._2n3FI, html[dir] ._3PX6A .emojik:focus, html[dir] .emojik.selected, html[dir] ._2DzhA .emojik:focus, html[dir] .keyboard-user ._14pZF:focus, html[dir] .dXdpP:focus img, html[dir] ._3DmTD, html[dir] ._3LX7r._1brJQ, html[dir] ._1In2E, html[dir] ._2iHK1, html[dir] ._1zmqw, html[dir] .aaQbT.sykWe ._1kkeT:after, html[dir] .zlxY1:focus img, html[dir] .dark ._1-qgF, html[dir] ._20zqk {
+	html[dir] ._1HX2v, html[dir] .KpuSa, html[dir] ._32yhp:after, html[dir] ._3nLE_, html[dir] ._3bfj9, html[dir] ._2irZL, html[dir] ._2m16s:before, html[dir] ._159mM ._2JswF, html[dir] ._159mM ._2zab4, html[dir] ._7M8i6, html[dir] ._3g-3H, html[dir] ._2n3FI, html[dir] ._3PX6A .emojik:focus, html[dir] .emojik.selected, html[dir] ._2DzhA .emojik:focus, html[dir] .keyboard-user ._14pZF:focus, html[dir] .dXdpP:focus img, html[dir] ._3DmTD, html[dir] ._3LX7r._1brJQ, html[dir] ._1In2E, html[dir] ._2iHK1, html[dir] ._1zmqw, html[dir] .aaQbT.sykWe ._1kkeT:after, html[dir] .zlxY1:focus img, html[dir] .dark ._1-qgF, html[dir] ._20zqk, html[dir] ._1T8sW, html[dir] .dark ._3ZEdX, html[dir] ._1qAEq {
 		box-shadow: none;
 	}
 
@@ -506,6 +529,7 @@
 
 		else if(bg-image==bg-image-custom) {
 			background-image: url(bg-image-url);
+			filter: brightness(bg-brightness) saturate(bg-saturate);
 		}
 
 		background-color: var(--body-bg)!important;

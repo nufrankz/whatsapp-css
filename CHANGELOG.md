@@ -1,3 +1,4 @@
+**`v4.1.30`** `2021.04.12` fixed drop-shadow feature, added background image brightness and saturation\
 **`v4.1.28`** `2021.04.09` fixed audio and some icons colors\
 **`v4.1.27`** `2021.03.10` fixed outgoing spinner color\
 **`v4.1.26`** `2021.03.04` fixed replied comments background, inital animation, borders on chat rows\
