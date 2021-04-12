@@ -35,9 +35,9 @@ Changelog is [here](/CHANGELOG.md).
 1. Click the Stylus icon on your Extensions toolbar
 2. On the popup, click the Gear icon next of this Style's name
 3. Tweak the different options, with this formatting:
-   - Image URL's _must be_ enclosed in double quotes (").
-   - Custom Fonts _must be_ installed on your system. You can see your installed fonts on `%windir%/fonts` on Windows, `Font Book` on MacOS, `fc-list` on Linux.
-4. Your changes will be automatically applied, unless "on change" checkbox is unchecked at the bottom
+   - Image URL's _must be_ enclosed in double quotes (`"`).
+   - Custom Fonts _must be_ installed on your system. You can see your installed fonts on `%windir%/fonts` on Windows, `Font Book` on MacOS, `fc-list` on Linux. Format for Custom Fonts are usually enclosed in simple or double quotes, or have CamelCase names.
+4. Your changes will be automatically applied, unless [ ] `on change` checkbox is _unchecked_ at the bottom
 
 ## Features
 
@@ -49,15 +49,16 @@ By installing this style, you can configure the following options to your liking
 4. Text Color
 5. Transparency Color
 6. Background Image, Size and Position
-7. Background Image Blur
-8. Opacity of Secondary Elements
-9. Doodles Color and Opacity
-10. Custom Font or any of the four Web Safe Font Families (Helvetica, Times, Console and Old Console)
-11. App's Width _new on v4.1.0_
-12. App's Height _new on v4.1.0_
-13. Private Mode
-14. Blurry Transparency _new on v4.1.0_
-15. Easy Startup Animation _new on v4.1.0_
+7. Background Brightness and Saturation _from v4.1.30_
+8. Background Image Blur
+9. Opacity of Secondary Elements
+10. Doodles Color and Opacity
+11. Custom Font or any of the four Web Safe Font Families (Helvetica, Times, Console and Old Console)
+12. App's Width _from v4.1.0_
+13. App's Height _from v4.1.0_
+14. Private Mode
+15. Blurry Transparency, using `backdrop-filter` _from v4.1.0_
+16. Easy Startup Animation _from v4.1.0_
 
 ## Contributing
 
